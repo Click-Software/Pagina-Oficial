@@ -1,15 +1,41 @@
 @charset "UTF-8";
 
 /* ==========================================================================
-   Click — Estilos Globales Esenciales (Pre-fase 1)
+   Click — Y2K Neobrutalist OS / Blueprint Design System
+   Matches docs/DESIGN.md specifications
    ========================================================================== */
 
 :root {
-  --bg: #ffffff;
-  --text: #121212;
-  --text-muted: #52525b;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Surface & Base Canvas */
+  --bg-canvas: #FCFAF6;
+  --bg-grid-line: #E6DED0;
+  --chassis-gray: #D4D0C8;
+  --pure-white: #FFFFFF;
+  --pixel-black: #121212;
+  --muted-gray: #808080;
+  --dark-inset: #2c2b28;
+
+  /* Brand & Semantic Accents */
+  --action-yellow: #FFDE00;
+  --action-yellow-hover: #FFE600;
+  --win-teal: #008080;
+  --hyper-blue: #1B3BFF;
+  --terminal-green: #00E065;
+  --error-red: #FF2B44;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Shadows & Borders */
+  --border-thick: 2px solid var(--pixel-black);
+  --border-heavy: 3px solid var(--pixel-black);
+  --shadow-card: 4px 4px 0px var(--pixel-black);
+  --shadow-window: 6px 6px 0px var(--pixel-black);
+  --shadow-button: 4px 4px 0px var(--pixel-black);
+  --shadow-button-hover: 2px 2px 0px var(--pixel-black);
+  --shadow-button-active: 0px 0px 0px var(--pixel-black);
+
   color-scheme: light;
 }
 
@@ -19,21 +45,377 @@
   padding: 0;
 }
 
-html, body {
-  min-height: 100vh;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--bg-canvas);
+  background-image:
+    linear-gradient(var(--bg-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--pixel-black);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Accesibilidad foco */
+/* Custom Retro Scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-track {
+  background: var(--chassis-gray);
+  border-left: var(--border-thick);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--chassis-gray);
+  border: var(--border-thick);
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #808080;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c0c0c0;
+}
+
+/* Focus States */
 :focus-visible {
-  outline: 2px solid var(--text);
+  outline: 2px solid var(--hyper-blue);
   outline-offset: 2px;
+}
+
+/* Base Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  color: var(--pixel-black);
+  line-height: 1.2;
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   OS Window Chassis Component Architecture
+   ========================================================================== */
+
+.os-window {
+  background-color: var(--chassis-gray);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-window);
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.window-titlebar {
+  background-color: var(--win-teal);
+  color: var(--pure-white);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  user-select: none;
+  border-bottom: var(--border-thick);
+}
+
+.window-titlebar.inactive {
+  background-color: var(--muted-gray);
+  color: var(--chassis-gray);
+}
+
+.window-title-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.win-btn {
+  width: 20px;
+  height: 20px;
+  background-color: var(--chassis-gray);
+  border: var(--border-thick);
+  color: var(--pixel-black);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  user-select: none;
+}
+
+.win-btn:active {
+  box-shadow: inset 1px 1px 0px var(--pixel-black);
+  transform: translate(1px, 1px);
+}
+
+.window-body {
+  background-color: var(--pure-white);
+  padding: 20px;
+  flex: 1;
+}
+
+.window-body-chassis {
+  background-color: var(--chassis-gray);
+  padding: 16px;
+  flex: 1;
+}
+
+.window-statusbar {
+  background-color: var(--chassis-gray);
+  border-top: var(--border-thick);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Neobrutalist Buttons & Interactive Elements
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: var(--border-thick);
+  border-radius: 0px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.15s ease;
+  user-select: none;
+}
+
+.btn-primary {
+  background-color: var(--action-yellow);
+  color: var(--pixel-black);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-primary:hover {
+  background-color: var(--action-yellow-hover);
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-primary:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.btn-secondary {
+  background-color: var(--pure-white);
+  color: var(--pixel-black);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-secondary:hover {
+  background-color: var(--chassis-gray);
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-secondary:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.btn-tertiary {
+  background-color: var(--hyper-blue);
+  color: var(--pure-white);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-tertiary:hover {
+  background-color: #0026d6;
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-tertiary:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.btn-teal {
+  background-color: var(--win-teal);
+  color: var(--pure-white);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-teal:hover {
+  background-color: #006565;
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-teal:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-lg {
+  padding: 14px 26px;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   Badges, Chips & Insets
+   ========================================================================== */
+
+.badge-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: var(--border-thick);
+  border-radius: 0px;
+  box-shadow: 2px 2px 0px var(--pixel-black);
+  line-height: 1.2;
+}
+
+.badge-teal {
+  background-color: var(--win-teal);
+  color: var(--pure-white);
+}
+
+.badge-yellow {
+  background-color: var(--action-yellow);
+  color: var(--pixel-black);
+}
+
+.badge-green {
+  background-color: var(--terminal-green);
+  color: var(--pixel-black);
+}
+
+.badge-blue {
+  background-color: var(--hyper-blue);
+  color: var(--pure-white);
+}
+
+.badge-gray {
+  background-color: var(--chassis-gray);
+  color: var(--pixel-black);
+}
+
+.sunken-panel {
+  background-color: var(--pure-white);
+  border: var(--border-thick);
+  box-shadow: inset 2px 2px 0px rgba(0,0,0,0.12);
+  padding: 12px;
+}
+
+.terminal-panel {
+  background-color: var(--pixel-black);
+  color: var(--terminal-green);
+  border: var(--border-thick);
+  font-family: var(--font-mono);
+  padding: 14px;
+}
+
+/* Beveled Tabs */
+.tabs-nav {
+  display: flex;
+  gap: 4px;
+  border-bottom: var(--border-thick);
+  padding: 0 8px;
+  background-color: var(--chassis-gray);
+}
+
+.tab-item {
+  padding: 6px 16px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  background-color: var(--chassis-gray);
+  border: var(--border-thick);
+  border-bottom: none;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+}
+
+.tab-item.active {
+  background-color: var(--pure-white);
+  top: 0px;
+  padding-bottom: 8px;
+}
+
+/* Pulse status dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: var(--terminal-green);
+  box-shadow: 0 0 8px var(--terminal-green);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Section Containers */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
 }

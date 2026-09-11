@@ -1,60 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import OSHeader from '../components/OSHeader.astro';
+import HeroWindow from '../components/HeroWindow.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import { ProjectCalculator } from '../components/ProjectCalculator';
+import TechStackSection from '../components/TechStackSection.astro';
+import PortfolioSection from '../components/PortfolioSection.astro';
+import { InteractiveTerminal } from '../components/InteractiveTerminal';
+import { ContactSection } from '../components/ContactSection';
+import OSFooter from '../components/OSFooter.astro';
 ---
 
 <Layout
-  title="Click — Experiencias memorables en un solo click"
-  description="Desarrollo de páginas web corporativas y soluciones de software a la medida para empresas, pymes y emprendimientos."
+  title="Click — Web Corporativa & Software a la Medida ($3,000 USD Quality)"
+  description="Estudio de ingeniería de software especializado en páginas web corporativas de alto impacto, plataformas a la medida y rendimiento extremo Zero Lag."
 >
-  <main class="minimal-stage">
-    <div class="brand-unit">
-      <img src="/logo.svg" alt="Click" width="110" height="110" class="brand-logo" />
-      <h1 class="brand-name">Click</h1>
-      <p class="brand-slogan">Experiencias memorables en un solo click.</p>
+  <OSHeader />
+
+  <main>
+    <HeroWindow />
+    <ServicesSection />
+
+    <div class="container">
+      <ProjectCalculator client:visible />
+    </div>
+
+    <TechStackSection />
+    <PortfolioSection />
+
+    <div class="container">
+      <InteractiveTerminal client:visible />
+      <ContactSection client:visible />
     </div>
   </main>
+
+  <OSFooter />
 </Layout>
 
 <style>
-  .minimal-stage {
+  main {
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    background: #ffffff;
-  }
-
-  .brand-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.85rem;
-  }
-
-  .brand-logo {
-    width: 96px;
-    height: 96px;
-    object-fit: contain;
-  }
-
-  .brand-name {
-    font-size: 2.25rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: #121212;
-    margin: 0;
-  }
-
-  .brand-slogan {
-    font-size: 0.95rem;
-    color: #52525b;
-    font-weight: 500;
-    margin: 0;
-    max-width: 320px;
-    line-height: 1.4;
+    padding-bottom: 20px;
   }
 </style>

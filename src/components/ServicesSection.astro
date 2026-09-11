@@ -1,0 +1,227 @@
+---
+import { DevVizzInspector } from './DevVizzInspector';
+---
+
+<section id="servicios" class="services-section container">
+  <div class="section-title-unit">
+    <span class="badge-chip badge-yellow">SERVICIOS_CAPABILITIES.SYS</span>
+    <h2 class="section-title">Soluciones Digitales de Alto Impacto</h2>
+    <p class="section-desc">
+      Combina arquitectura de software limpia con diseño Neobrutalista para diferenciarte radicalmente de tu competencia.
+    </p>
+  </div>
+
+  <DevVizzInspector
+    client:visible
+    title="SERVICIOS_ARCH_MATRIX"
+    codeSnippet={`// Click Core Service Engine Definition
+export interface ServicePackage {
+  id: string;
+  name: string;
+  targetB2B: string;
+  deliverables: string[];
+  techStack: string[];
+  lighthouseTarget: 100;
+  pricingUsd: number;
+}
+
+export const corporateWebService: ServicePackage = {
+  id: "web-corp-3000",
+  name: "Sitio Web Corporativo Premium",
+  targetB2B: "Empresas, Pymes y Startups B2B",
+  deliverables: [
+    "Diseño Neobrutalista Custom",
+    "Instant Dev-Vizz Inspector Engine",
+    "Optimización SEO Schema.org & OpenGraph",
+    "Formularios e Integración CRM"
+  ],
+  techStack: ["Astro 5", "TypeScript", "React 19", "Cloudflare Workers"],
+  lighthouseTarget: 100,
+  pricingUsd: 3000
+};`}
+  >
+    <div class="services-grid">
+      {/* Service 1 */}
+      <div class="service-card os-window">
+        <div class="window-titlebar">
+          <div class="window-title-text">
+            <span>[01] WEB_CORPORATIVA_CUSTOM</span>
+          </div>
+          <span class="badge-chip badge-yellow">$1,500 - $3,000 USD</span>
+        </div>
+        <div class="window-body service-body">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-name">Páginas Web Corporativas a la Medida</h3>
+          <p class="service-text">
+            No usamos plantillas lentas de WordPress o Wix. Desarrollamos sitios web estáticos y dinámicos que cargan de forma instantánea y proyectan la máxima autoridad de tu marca.
+          </p>
+          <ul class="service-features">
+            <li>⚡ Carga instantánea (&lt; 0.2s)</li>
+            <li>🎨 Sistema de Diseño Neobrutalista Y2K</li>
+            <li>🔍 SEO Técnico & Schema.org para IA</li>
+            <li>📱 100% Responsivo en todos los dispositivos</li>
+          </ul>
+          <div class="service-footer">
+            <a href="#calculadora" class="btn btn-secondary btn-sm">COTIZAR AHORA →</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Service 2 */}
+      <div class="service-card os-window">
+        <div class="window-titlebar">
+          <div class="window-title-text">
+            <span>[02] SOFTWARE_A_LA_MEDIDA</span>
+          </div>
+          <span class="badge-chip badge-green">$3,000 - $6,000 USD</span>
+        </div>
+        <div class="window-body service-body">
+          <div class="service-icon">⚙️</div>
+          <h3 class="service-name">Plataformas Web & Software Custom</h3>
+          <p class="service-text">
+            Construimos aplicaciones web complejas, portales de clientes, tableros de gestión (dashboards) y MVPs para startups con arquitectura escalable e integración de APIs.
+          </p>
+          <ul class="service-features">
+            <li>🔑 Autenticación & Control de Roles</li>
+            <li>📊 Dashboards de Analítica en Tiempo Real</li>
+            <li>🔌 Integración con APIs & Webhooks B2B</li>
+            <li>🛡️ Ciberseguridad por Diseño (Security by Design)</li>
+          </ul>
+          <div class="service-footer">
+            <a href="#calculadora" class="btn btn-secondary btn-sm">COTIZAR AHORA →</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Service 3 */}
+      <div class="service-card os-window">
+        <div class="window-titlebar">
+          <div class="window-title-text">
+            <span>[03] AUDITORIA_PERFORMANCE</span>
+          </div>
+          <span class="badge-chip badge-blue">$800 - $2,000 USD</span>
+        </div>
+        <div class="window-body service-body">
+          <div class="service-icon">🚀</div>
+          <h3 class="service-name">Optimización Extreme Zero-Lag</h3>
+          <p class="service-text">
+            Transformamos sitios web existentes que cargan lento en máquinas de alta velocidad. Garantizamos un puntaje de 100/100 en Google Lighthouse y Core Web Vitals en verde.
+          </p>
+          <ul class="service-features">
+            <li>📈 Reducción de TBT a 0ms</li>
+            <li>🖼️ Optimización de Assets e Imágenes Next-Gen</li>
+            <li>⚡ Migración a Cloudflare Edge Workers</li>
+            <li>🛡️ Auditoría de Seguridad & Cabeceras HSTS</li>
+          </ul>
+          <div class="service-footer">
+            <a href="#calculadora" class="btn btn-secondary btn-sm">COTIZAR AHORA →</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Service 4 */}
+      <div class="service-card os-window">
+        <div class="window-titlebar">
+          <div class="window-title-text">
+            <span>[04] DESIGN_SYSTEMS_UIUX</span>
+          </div>
+          <span class="badge-chip badge-teal">$1,200 - $2,500 USD</span>
+        </div>
+        <div class="window-body service-body">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-name">Sistemas de Diseño & Marcas Disruptivas</h3>
+          <p class="service-text">
+            Diseñamos la identidad de interfaz de tu producto digital. Definimos paletas de color, tipografía, componentes reusables y guías de marca que enamoran a clientes Gen Z y Millennials.
+          </p>
+          <ul class="service-features">
+            <li>📐 Guía de Estilo & Tokens de Diseño</li>
+            <li>🖥️ UI Kit Neobrutalista en Figma & React</li>
+            <li>♿ Estándar de Accesibilidad WCAG AA</li>
+            <li>🔄 Prototipado Interactivo de Alta Fidelidad</li>
+          </ul>
+          <div class="service-footer">
+            <a href="#calculadora" class="btn btn-secondary btn-sm">COTIZAR AHORA →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </DevVizzInspector>
+</section>
+
+<style>
+  .services-section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .section-title-unit {
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .section-desc {
+    color: #52525b;
+    font-size: 1.05rem;
+    max-width: 650px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 0px var(--pixel-black);
+  }
+
+  .service-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .service-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .service-text {
+    font-size: 0.9rem;
+    color: #2c2b28;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .service-features {
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+    margin-top: auto;
+  }
+
+  .service-footer {
+    border-top: 2px solid var(--pixel-black);
+    padding-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>

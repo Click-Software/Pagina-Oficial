@@ -1,58 +1,94 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import OSHeader from '../components/OSHeader.astro';
+import OSFooter from '../components/OSFooter.astro';
 ---
 
 <Layout
-  title="404: No Encontrado — Click"
-  description="La página solicitada no existe."
+  title="404: recurso_no_encontrado.exe — Click"
+  description="Diagnostic error 404: La ruta solicitada no existe en el sistema."
 >
-  <main class="not-found-stage">
-    <div class="brand-unit">
-      <h1 class="code">404</h1>
-      <p class="desc">Página no encontrada.</p>
-      <a href="/" class="back-link">← Volver al inicio</a>
+  <OSHeader />
+
+  <main class="not-found-stage container">
+    <div class="os-window error-window">
+      <div class="window-titlebar inactive">
+        <div class="window-title-text">
+          <span class="badge-chip badge-yellow">SYSTEM_DIAGNOSTIC_ERR</span>
+          <span>SYSTEM_ERROR_404.SYS</span>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn">✕</button>
+        </div>
+      </div>
+
+      <div class="window-body error-body">
+        <div class="error-code">404</div>
+        <h1 class="error-title">RECURSO NO ENCONTRADO EN CLICK_OS</h1>
+        <p class="error-desc">
+          Se ha producido una excepción en la ruta solicitada. El módulo no fue localizado en Cloudflare Edge Network.
+        </p>
+
+        <div class="terminal-panel" style={{ textAlign: 'left', marginBottom: '24px' }}>
+          <div>[DIAGNOSTIC LOG]:</div>
+          <div style={{ color: '#FF2B44' }}>ERROR_CODE: 0x00000404 (PAGE_NOT_FOUND_EXCEPTION)</div>
+          <div>ADDRESS: 0xCLICK_EDGE_ROUTER</div>
+          <div style={{ color: '#00E065' }}>RECOMMENDED ACTION: RETURNING_TO_MAIN_PAGE</div>
+        </div>
+
+        <a href="/" class="btn btn-primary btn-lg">
+          ← VOLVER AL INICIO DE CLICK_OS
+        </a>
+      </div>
+
+      <div class="window-statusbar">
+        <span>SYSTEM DIAGNOSTIC COMPLETE</span>
+        <span>CLICK SOFTWARE STUDIO</span>
+      </div>
     </div>
   </main>
+
+  <OSFooter />
 </Layout>
 
 <style>
   .not-found-stage {
-    min-height: 100vh;
+    padding-top: 48px;
+    padding-bottom: 48px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    background: #ffffff;
   }
 
-  .brand-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+  .error-window {
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 8px 8px 0px var(--pixel-black);
+  }
+
+  .error-body {
+    padding: 32px;
     text-align: center;
   }
 
-  .code {
-    font-size: 3rem;
+  .error-code {
+    font-family: var(--font-mono);
+    font-size: 5rem;
     font-weight: 800;
-    color: #121212;
-    margin: 0;
+    color: var(--hyper-blue);
     line-height: 1;
+    margin-bottom: 8px;
   }
 
-  .desc {
+  .error-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .error-desc {
     color: #52525b;
+    margin-bottom: 20px;
     font-size: 0.95rem;
-    margin: 0;
-  }
-
-  .back-link {
-    color: #121212;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    margin-top: 0.5rem;
   }
 </style>

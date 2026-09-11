@@ -1,0 +1,165 @@
+---
+---
+
+<header class="os-header-wrapper">
+  <div class="os-topbar container">
+    <div class="brand-badge">
+      <a href="/" class="brand-link">
+        <img src="/logo.svg" alt="Click Logo" class="header-logo" width="24" height="24" />
+        <span class="brand-title">CLICK_OS</span>
+        <span class="version-tag">v1.0.0</span>
+      </a>
+    </div>
+
+    <div class="nav-pills">
+      <a href="#servicios" class="nav-item">[1] SERVICIOS</a>
+      <a href="#calculadora" class="nav-item highlight">[2] COTIZADOR $3K</a>
+      <a href="#stack" class="nav-item">[3] STACK</a>
+      <a href="#casos" class="nav-item">[4] PORTAFOLIO</a>
+      <a href="#terminal" class="nav-item">[5] TERMINAL</a>
+    </div>
+
+    <div class="telemetry-box">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span class="status-text">SYSTEM: OPERATIONAL</span>
+      </div>
+      <div class="clock-display" id="os-clock">00:00:00 UTC</div>
+      <a href="#contacto" class="btn btn-primary btn-sm cta-header">
+        COTIZAR PROYECTO →
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  function updateClock() {
+    const clockEl = document.getElementById('os-clock');
+    if (clockEl) {
+      const now = new Date();
+      const timeStr = now.toISOString().substring(11, 19) + ' UTC';
+      clockEl.textContent = timeStr;
+    }
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+<style>
+  .os-header-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--chassis-gray);
+    border-bottom: var(--border-heavy);
+    box-shadow: 0px 4px 0px rgba(0,0,0,0.15);
+    padding: 6px 0;
+  }
+
+  .os-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background-color: var(--pure-white);
+    border: var(--border-thick);
+    box-shadow: 2px 2px 0px var(--pixel-black);
+  }
+
+  .header-logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .brand-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+  }
+
+  .version-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    background-color: var(--win-teal);
+    color: var(--pure-white);
+    padding: 1px 4px;
+    font-weight: 700;
+  }
+
+  .nav-pills {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-item {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    background-color: var(--pure-white);
+    border: var(--border-thick);
+    box-shadow: 2px 2px 0px var(--pixel-black);
+    transition: transform 0.08s ease, background-color 0.1s ease;
+  }
+
+  .nav-item:hover {
+    background-color: var(--action-yellow);
+    transform: translate(1px, 1px);
+  }
+
+  .nav-item.highlight {
+    background-color: var(--action-yellow);
+  }
+
+  .telemetry-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--pixel-black);
+    color: var(--terminal-green);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border: var(--border-thick);
+  }
+
+  .clock-display {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--pure-white);
+    padding: 4px 8px;
+    border: var(--border-thick);
+  }
+
+  @media (max-width: 900px) {
+    .nav-pills {
+      display: none;
+    }
+    .status-indicator {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .clock-display {
+      display: none;
+    }
+  }
+</style>

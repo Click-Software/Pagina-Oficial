@@ -1,0 +1,191 @@
+---
+---
+
+<section id="stack" class="stack-section container">
+  <div class="os-window stack-window">
+    <div class="window-titlebar">
+      <div class="window-title-text">
+        <span class="badge-chip badge-green">TECH_STACK_MATRIX.EXE</span>
+        <span>Ingeniería de Software & Arquitectura de Alto Rendimiento</span>
+      </div>
+      <div class="window-controls">
+        <button class="win-btn">_</button>
+        <button class="win-btn">□</button>
+        <button class="win-btn">✕</button>
+      </div>
+    </div>
+
+    <div class="window-body stack-body">
+      <div class="stack-intro">
+        <h2>🛠️ Pila Tecnológica Seleccionada a Mano</h2>
+        <p>
+          Seleccionamos únicamente tecnologías de vanguardia que garantizan la máxima velocidad, seguridad cibernética y mantenibilidad a largo plazo para tu empresa.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        {/* Tech item 1 */}
+        <div class="tech-card sunken-panel">
+          <div class="tech-header">
+            <span class="tech-name">Astro 5.0</span>
+            <span class="badge-chip badge-yellow">SSG / ISLANDS</span>
+          </div>
+          <p class="tech-desc">
+            Arquitectura de Islas que envía cero JavaScript innecesario al cliente. Cargas instantáneas en dispositivos móviles.
+          </p>
+          <div class="tech-metric">Rendimiento HTML Estático Extremo</div>
+        </div>
+
+        {/* Tech item 2 */}
+        <div class="tech-card sunken-panel">
+          <div class="tech-header">
+            <span class="tech-name">React 19 & TypeScript</span>
+            <span class="badge-chip badge-blue">STRICT TYPE</span>
+          </div>
+          <p class="tech-desc">
+            Componentes interactivos robustos con tipado estricto. Previene errores en producción y asegura mantenibilidad.
+          </p>
+          <div class="tech-metric">Código Limpio sin Bugs</div>
+        </div>
+
+        {/* Tech item 3 */}
+        <div class="tech-card sunken-panel">
+          <div class="tech-header">
+            <span class="tech-name">Cloudflare Workers</span>
+            <span class="badge-chip badge-teal">EDGE GLOBAL</span>
+          </div>
+          <p class="tech-desc">
+            Despliegue distribuido en más de 300 ciudades globales. Latencia de respuesta cercana a 0ms desde cualquier país.
+          </p>
+          <div class="tech-metric">99.99% Uptime Garantizado</div>
+        </div>
+
+        {/* Tech item 4 */}
+        <div class="tech-card sunken-panel">
+          <div class="tech-header">
+            <span class="tech-name">CSS Neobrutalista Native</span>
+            <span class="badge-chip badge-green">0 DEPENDENCIES</span>
+          </div>
+          <p class="tech-desc">
+            Sin frameworks CSS pesados que alenten tu sitio. Sistema modular nativo ultraligero con diseño retro Y2K.
+          </p>
+          <div class="tech-metric">&lt; 10 KB CSS Size</div>
+        </div>
+      </div>
+
+      <div class="audit-banner">
+        <div class="audit-left">
+          <div class="audit-title">🛡️ ESTÁNDARES B2B INNEGOCIABLES</div>
+          <div class="audit-tags">
+            <span class="badge-chip badge-green">LIGHTHOUSE 100/100</span>
+            <span class="badge-chip badge-teal">WCAG AA ACCESIBILIDAD</span>
+            <span class="badge-chip badge-yellow">SECURITY BY DESIGN</span>
+            <span class="badge-chip badge-blue">CSP STRICT</span>
+          </div>
+        </div>
+        <a href="#calculadora" class="btn btn-primary btn-sm">CONOCE NUESTRO PROCESO →</a>
+      </div>
+    </div>
+
+    <div class="window-statusbar">
+      <span>TECH ARCHITECTURE STATUS: VERIFIED OPTIMAL</span>
+      <span>CLICK SOFTWARE STUDIO • CLEAN CODE STANDARDS</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack-section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .stack-window {
+    box-shadow: 6px 6px 0px var(--pixel-black);
+  }
+
+  .stack-body {
+    padding: 28px;
+  }
+
+  .stack-intro {
+    margin-bottom: 24px;
+  }
+
+  .stack-intro h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .stack-intro p {
+    color: #52525b;
+    font-size: 0.95rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tech-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tech-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .tech-name {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 1.05rem;
+  }
+
+  .tech-desc {
+    font-size: 0.85rem;
+    color: #2c2b28;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .tech-metric {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--win-teal);
+    background-color: var(--pure-white);
+    padding: 4px 8px;
+    border: 1px solid var(--pixel-black);
+  }
+
+  .audit-banner {
+    background-color: var(--chassis-gray);
+    border: var(--border-heavy);
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .audit-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .audit-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+---
+
+<section id="casos" class="portfolio-section container">
+  <div class="section-title-unit">
+    <span class="badge-chip badge-blue">CASE_STUDIES.LOG</span>
+    <h2 class="section-title">Casos de Éxito & Resultados B2B</h2>
+    <p class="section-desc">
+      Proyectos reales desarrollados con rigor de ingeniería y estética memorable.
+    </p>
+  </div>
+
+  <div class="portfolio-grid">
+    {/* Case 1 */}
+    <div class="os-window case-card">
+      <div class="window-titlebar">
+        <div class="window-title-text">
+          <span>PROJECT_01: FINTECH_SAAS</span>
+        </div>
+        <span class="badge-chip badge-green">CONVERSION +340%</span>
+      </div>
+      <div class="window-body">
+        <div class="case-meta">
+          <span class="case-category">PLATAFORMA B2B</span>
+          <span class="case-tech">Astro 5 + React 19 + Edge</span>
+        </div>
+        <h3 class="case-title">Plataforma Neobrutalista para Fintech de Pagos</h3>
+        <p class="case-desc">
+          Rediseño total de la web corporativa e interfaz de usuario. Redujimos el tiempo de carga de 4.2 segundos a 0.15 segundos, multiplicando la tasa de conversión por 3.4x.
+        </p>
+        <div class="case-stats">
+          <div class="stat-unit">
+            <div class="stat-num">0.15s</div>
+            <div class="stat-lbl">Carga Global</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">100/100</div>
+            <div class="stat-lbl">Lighthouse</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">+340%</div>
+            <div class="stat-lbl">Leads B2B</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Case 2 */}
+    <div class="os-window case-card">
+      <div class="window-titlebar">
+        <div class="window-title-text">
+          <span>PROJECT_02: LOGISTICS_CORP</span>
+        </div>
+        <span class="badge-chip badge-yellow">ZERO LAG API</span>
+      </div>
+      <div class="window-body">
+        <div class="case-meta">
+          <span class="case-category">WEB CORPORATIVA</span>
+          <span class="case-tech">TypeScript + Cloudflare</span>
+        </div>
+        <h3 class="case-title">Portal Corporativo para Empresa de Logística</h3>
+        <p class="case-desc">
+          Portal internacional con rastreo de envíos en tiempo real, integraciones con ERP y cotizador de fletes instantáneo para clientes corporativos.
+        </p>
+        <div class="case-stats">
+          <div class="stat-unit">
+            <div class="stat-num">99.99%</div>
+            <div class="stat-lbl">Uptime</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">&lt; 15ms</div>
+            <div class="stat-lbl">API Latency</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">100%</div>
+            <div class="stat-lbl">Seguridad SSL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Case 3 */}
+    <div class="os-window case-card">
+      <div class="window-titlebar">
+        <div class="window-title-text">
+          <span>PROJECT_03: Y2K_RETAIL</span>
+        </div>
+        <span class="badge-chip badge-teal">RETAIL BRAND</span>
+      </div>
+      <div class="window-body">
+        <div class="case-meta">
+          <span class="case-category">DISRUPTIVE WEB</span>
+          <span class="case-tech">Astro + Custom CSS System</span>
+        </div>
+        <h3 class="case-title">Experiencia E-Commerce Neobrutalista</h3>
+        <p class="case-desc">
+          Tienda web interactiva para marca de moda urbana. Navegación fluida tipo OS con cero retraso en clics y pagos integrados con Stripe API.
+        </p>
+        <div class="case-stats">
+          <div class="stat-unit">
+            <div class="stat-num">0ms</div>
+            <div class="stat-lbl">TBT Lag</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">4.9/5</div>
+            <div class="stat-lbl">UX Feedback</div>
+          </div>
+          <div class="stat-unit">
+            <div class="stat-num">2.5x</div>
+            <div class="stat-lbl">Retención</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio-section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .case-card {
+    box-shadow: 4px 4px 0px var(--pixel-black);
+  }
+
+  .case-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--win-teal);
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .case-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .case-desc {
+    font-size: 0.9rem;
+    color: #2c2b28;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background-color: var(--chassis-gray);
+    border: var(--border-thick);
+    padding: 10px;
+  }
+
+  .stat-unit {
+    text-align: center;
+    background-color: var(--pure-white);
+    border: 1px solid var(--pixel-black);
+    padding: 6px;
+  }
+
+  .stat-num {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--pixel-black);
+  }
+
+  .stat-lbl {
+    font-size: 9px;
+    font-weight: 700;
+    color: #52525b;
+    text-transform: uppercase;
+  }
+</style>
