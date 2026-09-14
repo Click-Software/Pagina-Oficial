@@ -9,16 +9,16 @@ if (!company) {
 const { navLinks } = company.data;
 ---
 
-<header class="sticky top-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-black/10">
+<header class="sticky top-0 z-50 bg-bg/95 backdrop-blur-md border-b border-black/10">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
     <a href="#inicio" class="flex items-center gap-2.5 no-underline group">
       <img src="/logo.svg" alt="Click" width="28" height="28" class="transition-transform group-hover:scale-105" />
-      <span class="text-xl font-extrabold tracking-tight text-[var(--color-text)]">Click</span>
+      <span class="text-xl font-extrabold tracking-tight text-text">Click</span>
     </a>
     <nav class="hidden md:flex items-center gap-7">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
+          <a href={link.href} class="text-sm font-semibold text-text-muted hover:text-text transition-colors">
             {link.label}
           </a>
         ))

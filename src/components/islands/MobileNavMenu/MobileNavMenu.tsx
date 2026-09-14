@@ -27,26 +27,26 @@ export default function MobileNavMenu({ navLinks }: MobileNavMenuProps) {
       {/* Botón hamburguesa con micro-interacción */}
       <button
         type="button"
-        className="w-10 h-10 flex flex-col justify-center items-center gap-[5px] bg-transparent border-[1.5px] border-[#121212] shadow-[2px_2px_0px_#121212] cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_#121212] transition-transform"
+        className="w-10 h-10 flex flex-col justify-center items-center gap-1.25 bg-transparent border-[1.5px] border-border shadow-[2px_2px_0px_var(--color-border)] cursor-pointer active:translate-x-px active:translate-y-px active:shadow-[1px_1px_0px_var(--color-border)] transition-transform"
         aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span
-          className={`w-5 h-[2px] bg-[#121212] transition-transform duration-200 ${
+          className={`w-5 h-0.5 bg-text transition-transform duration-200 ${
             isOpen ? "translate-y-[3.5px] rotate-45" : ""
           }`}
         />
         <span
-          className={`w-5 h-[2px] bg-[#121212] transition-transform duration-200 ${
-            isOpen ? "-translate-y-[3.5px] -rotate-45" : ""
+          className={`w-5 h-0.5 bg-text transition-transform duration-200 ${
+            isOpen ? "translate-y-[-3.5px] -rotate-45" : ""
           }`}
         />
       </button>
 
       {/* Menú desplegable */}
       <div
-        className={`absolute top-16 left-0 right-0 overflow-hidden bg-[#fdf9f0] border-b border-black/10 transition-all duration-300 ease-out ${
+        className={`absolute top-16 left-0 right-0 overflow-hidden bg-bg border-b border-black/10 transition-all duration-300 ease-out ${
           isOpen
             ? "max-h-96 opacity-100 shadow-xl pointer-events-auto"
             : "max-h-0 opacity-0 pointer-events-none"
@@ -58,7 +58,7 @@ export default function MobileNavMenu({ navLinks }: MobileNavMenuProps) {
             <a
               key={link.href}
               href={link.href}
-              className="text-base font-semibold text-[#121212] py-1.5 border-b border-black/5 hover:text-[var(--color-brand)] transition-colors"
+              className="text-base font-semibold text-text py-1.5 border-b border-black/5 hover:text-brand transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
