@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import NavBar from "@/components/NavBar.astro";
+import Hero from "@/components/Hero.astro";
 ---
 
 <Layout
@@ -8,7 +9,9 @@ import NavBar from "@/components/NavBar.astro";
   description="Desarrollo de páginas web corporativas y soluciones de software a la medida para empresas, pymes y emprendimientos."
 >
   <NavBar />
-  <main class="main-wrapper"></main>
+  <main class="main-wrapper">
+    <Hero />
+  </main>
 </Layout>
 
 <style>
