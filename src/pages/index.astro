@@ -1,13 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro";
+import NavBar from "@/components/NavBar.astro";
 ---
 
-<Layout>
-  <main class="minimal-stage">
-    <div class="brand-unit">
-      <img src="/logo.svg" alt="Click" class="brand-logo" width="96" height="96" />
-      <h1 class="brand-name">Click</h1>
-      <p class="brand-slogan">Experiencias memorables en un solo click.</p>
-    </div>
-  </main>
+<Layout
+  title="Click — Experiencias memorables en un solo click"
+  description="Desarrollo de páginas web corporativas y soluciones de software a la medida para empresas, pymes y emprendimientos."
+>
+  <NavBar />
+  <main class="main-wrapper"></main>
 </Layout>
+
+<style>
+  .main-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

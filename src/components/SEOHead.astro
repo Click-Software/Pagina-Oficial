@@ -2,17 +2,17 @@
 export interface Props {
   title: string;
   description: string;
-  canonicalUrl?: string;
-  image?: string;
-  type?: 'website' | 'article';
-  noindex?: boolean;
+  canonicalUrl?: string | undefined;
+  image?: string | undefined;
+  type?: ('website' | 'article') | undefined;
+  noindex?: boolean | undefined;
 }
 
 const {
   title,
   description,
   canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href,
-  image = '/logo.png',
+  image = '/og-image.png',
   type = 'website',
   noindex = false,
 } = Astro.props;
@@ -49,7 +49,8 @@ const structuredData = {
 };
 ---
 
-<!-- Essential Meta -->
+<!-- Page Title & Essential Meta -->
+<title>{title}</title>
 <meta name="description" content={description} />
 
 {noindex ? (

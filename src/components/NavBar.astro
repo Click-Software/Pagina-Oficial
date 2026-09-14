@@ -1,0 +1,96 @@
+---
+import { getEntry } from "astro:content";
+import MobileNavMenu from "@/components/islands/MobileNavMenu";
+
+const company = await getEntry("company", "info");
+if (!company) {
+  throw new Error("No se encontró la entrada 'info' en la colección 'company'");
+}
+const { navLinks } = company.data;
+---
+
+<header class="navbar">
+  <div class="container-stage nav-container">
+    <a href="#inicio" class="brand">
+      <img src="/logo.svg" alt="Click" width="28" height="28" />
+      <span class="brand-name">Click</span>
+    </a>
+    <nav class="nav-links">
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="nav-item">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="nav-actions">
+      <a href="#contacto" class="btn-primary desktop-cta">Cotizar</a>
+      <MobileNavMenu client:load navLinks={navLinks} />
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(253, 249, 240, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-container {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #121212;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .nav-item {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #52525b;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .nav-item:hover {
+    color: #121212;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links,
+    .desktop-cta {
+      display: none;
+    }
+  }
+</style>

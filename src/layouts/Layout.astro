@@ -3,18 +3,13 @@ import '@/styles/global.css';
 import SEOHead from '@/components/SEOHead.astro';
 
 export interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   image?: string;
   noindex?: boolean;
 }
 
-const {
-  title = 'Click — Experiencias memorables en un solo click',
-  description = 'Desarrollo de páginas web corporativas y soluciones de software a la medida para empresas, pymes y emprendimientos.',
-  image = '/logo.png',
-  noindex = false,
-} = Astro.props;
+const { title, description, image, noindex } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,12 +22,12 @@ const {
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
 
-    <!-- Tipografía Google Fonts (Display=swap para 0 ms TBT y CLS = 0) -->
+    <!-- Tipografía Google Fonts & Material Symbols (Display=swap para 0 ms TBT y CLS = 0) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
-    <title>{title}</title>
 
     <!-- SEO, Open Graph & Structured Data -->
     <SEOHead title={title} description={description} image={image} noindex={noindex} />
