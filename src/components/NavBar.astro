@@ -10,21 +10,26 @@ const { navLinks } = company.data;
 ---
 
 <header class="sticky top-0 z-50 bg-bg/95 backdrop-blur-md border-b border-black/10">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
-    <a href="#inicio" class="flex items-center gap-2.5 no-underline group">
+  <div class="container-stage h-16 flex items-center justify-between relative">
+    <!-- Logo a la izquierda -->
+    <a href="#inicio" class="flex items-center gap-2.5 no-underline group z-10">
       <img src="/logo.svg" alt="Click" width="28" height="28" class="transition-transform group-hover:scale-105" />
       <span class="text-xl font-extrabold tracking-tight text-text">Click</span>
     </a>
-    <nav class="hidden md:flex items-center gap-7">
+
+    <!-- Enlaces de navegación centrados matemáticamente en escritorio -->
+    <nav class="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="text-sm font-semibold text-text-muted hover:text-text transition-colors">
+          <a href={link.href} class="text-sm font-semibold text-text-muted hover:text-text transition-colors whitespace-nowrap">
             {link.label}
           </a>
         ))
       }
     </nav>
-    <div class="flex items-center gap-3">
+
+    <!-- Acciones a la derecha -->
+    <div class="flex items-center gap-3 z-10">
       <a href="#contacto" class="hidden md:inline-flex btn-primary">Cotizar</a>
       <MobileNavMenu client:load navLinks={navLinks} />
     </div>
