@@ -1,0 +1,82 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href,
+  image = '/logo.png',
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const resolvedImageUrl = Astro.site ? new URL(image, Astro.site).href : new URL(image, Astro.url).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://clicksoftware.dev/#organization',
+      'name': 'Click',
+      'alternateName': 'Click Software Studio',
+      'url': 'https://clicksoftware.dev',
+      'logo': 'https://clicksoftware.dev/logo.svg',
+      'slogan': 'Experiencias memorables en un solo click.',
+      'description': description,
+      'sameAs': [
+        'https://github.com/Click-Software'
+      ]
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://clicksoftware.dev/#website',
+      'url': 'https://clicksoftware.dev/',
+      'name': 'Click — Experiencias memorables en un solo click',
+      'publisher': {
+        '@id': 'https://clicksoftware.dev/#organization'
+      },
+      'inLanguage': 'es'
+    }
+  ]
+};
+---
+
+<!-- Essential Meta -->
+<meta name="description" content={description} />
+
+{noindex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph / WhatsApp / Facebook / LinkedIn -->
+  <meta property="og:site_name" content="Click" />
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={resolvedImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={title} />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalUrl} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={resolvedImageUrl} />
+  <meta name="twitter:image:alt" content={title} />
+
+  <!-- JSON-LD Structured Data for Search Engines and AI Agents -->
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+)}

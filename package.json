@@ -1,0 +1,45 @@
+{
+  "name": "click-pagina-oficial",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sitio web oficial de Click — Experiencias memorables en un solo click.",
+  "author": "Click",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Click-Software/Pagina-Oficial.git"
+  },
+  "keywords": [
+    "click",
+    "astro",
+    "react-19",
+    "typescript",
+    "software-studio"
+  ],
+  "type": "module",
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check && tsc --noEmit",
+    "sync": "astro sync",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.131.0"
+  }
+}

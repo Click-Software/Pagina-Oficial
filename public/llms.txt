@@ -1,0 +1,15 @@
+# Click — Documentación LLM
+
+> Click es un estudio de desarrollo de software enfocado en crear experiencias memorables en un solo click: páginas web corporativas y soluciones a la medida para empresas, pymes y emprendimientos con rendimiento extremo.
+
+## Información de la Entidad
+- **Nombre**: Click
+- **Sitio Web**: https://clicksoftware.dev
+- **Repositorio Oficial**: https://github.com/Click-Software/Pagina-Oficial
+- **Branding**: https://github.com/Click-Software/Branding
+
+## Stack Tecnológico
+- Astro 7 (compilación estática, 0 KB de JS inicial)
+- TypeScript estricto
+- React 19
+- Despliegue en Cloudflare Pages

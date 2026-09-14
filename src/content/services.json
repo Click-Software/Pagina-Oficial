@@ -1,0 +1,29 @@
+[
+  {
+    "id": "desarrollo-web-corporativo",
+    "title": "Desarrollo Web Corporativo",
+    "description": "Sitios web de alto impacto diseñados a la medida para proyectar autoridad de marca, optimizados con 100/100 en Core Web Vitals, arquitectura SEO técnica de vanguardia y tiempos de carga instantáneos para maximizar la captación de clientes.",
+    "icon": "globe",
+    "ctaLabel": "Cotizar este servicio",
+    "serviceKey": "web-corporativo",
+    "order": 1
+  },
+  {
+    "id": "aplicaciones-web-a-la-medida",
+    "title": "Aplicaciones Web a la Medida",
+    "description": "Plataformas digitales complejas, sistemas de gestión interna y portales de clientes creados con tecnologías modernas en la nube, bases de datos resilientes y lógica de negocio adaptada con precisión quirúrgica a las operaciones de tu empresa.",
+    "icon": "cpu",
+    "ctaLabel": "Cotizar este servicio",
+    "serviceKey": "app-medida",
+    "order": 2
+  },
+  {
+    "id": "optimizacion-rediseno-digital",
+    "title": "Optimización y Rediseño Digital",
+    "description": "Modernización de plataformas existentes mediante auditoría de rendimiento, eliminación de tiempos de bloqueo (TBT = 0 ms), refactorización de código legado y rediseño de interfaz de usuario para multiplicar la tasa de retención y conversión.",
+    "icon": "sparkles",
+    "ctaLabel": "Cotizar este servicio",
+    "serviceKey": "optimizacion",
+    "order": 3
+  }
+]
