@@ -23,7 +23,7 @@ const company = defineCollection({
       customPhilosophy: z.string(),
     }),
     contact: z.object({
-      email: z.string().email(),
+      email: z.email(),
       whatsapp: z.object({
         number: z.string(),
         display: z.string(),
@@ -84,7 +84,7 @@ const portfolio = defineCollection({
     image: z.string(),
     imageAlt: z.string().default(""),
     tags: z.array(z.string()),
-    demoUrl: z.string().url().optional(),
+    demoUrl: z.url().optional(),
     order: z.number().default(1),
   }),
 });

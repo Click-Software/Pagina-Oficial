@@ -17,6 +17,7 @@ node_modules/
 .idea/
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 
 # OS files
 .DS_Store

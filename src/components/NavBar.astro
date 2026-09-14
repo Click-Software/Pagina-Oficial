@@ -9,88 +9,25 @@ if (!company) {
 const { navLinks } = company.data;
 ---
 
-<header class="navbar">
-  <div class="container-stage nav-container">
-    <a href="#inicio" class="brand">
-      <img src="/logo.svg" alt="Click" width="28" height="28" />
-      <span class="brand-name">Click</span>
+<header class="sticky top-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-black/10">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
+    <a href="#inicio" class="flex items-center gap-2.5 no-underline group">
+      <img src="/logo.svg" alt="Click" width="28" height="28" class="transition-transform group-hover:scale-105" />
+      <span class="text-xl font-extrabold tracking-tight text-[var(--color-text)]">Click</span>
     </a>
-    <nav class="nav-links">
+    <nav class="hidden md:flex items-center gap-7">
       {
         navLinks.map((link) => (
-          <a href={link.href} class="nav-item">
+          <a href={link.href} class="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
             {link.label}
           </a>
         ))
       }
     </nav>
-    <div class="nav-actions">
-      <a href="#contacto" class="btn-primary desktop-cta">Cotizar</a>
+    <div class="flex items-center gap-3">
+      <a href="#contacto" class="hidden md:inline-flex btn-primary">Cotizar</a>
       <MobileNavMenu client:load navLinks={navLinks} />
     </div>
   </div>
 </header>
 
-<style>
-  .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(253, 249, 240, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .nav-container {
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-  }
-
-  .brand-name {
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #121212;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-  }
-
-  .nav-item {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #52525b;
-    text-decoration: none;
-    transition: color 0.15s ease;
-  }
-
-  .nav-item:hover {
-    color: #121212;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links,
-    .desktop-cta {
-      display: none;
-    }
-  }
-</style>
