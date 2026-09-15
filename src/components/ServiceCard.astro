@@ -1,0 +1,47 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    imageAlt?: string;
+    icon?: string;
+    cta?: string;
+    href?: string;
+}
+
+const {
+    title,
+    description,
+    image,
+    imageAlt = title,
+    icon,
+    cta = "Cotizar este servicio",
+    href = "#contacto",
+} = Astro.props;
+
+const imageUrl = image || (icon ? `/assets/services/${icon}.svg` : "/logo.svg");
+---
+
+<article class="service-card group flex flex-col gap-4">
+    <div class="mb-6 flex h-24 w-full items-center justify-center">
+        <img
+            src={imageUrl}
+            alt={imageAlt}
+            width="100"
+            height="100"
+            loading="lazy"
+        />
+    </div>
+
+    <h3 class="mb-5 text-xl font-extrabold tracking-tight text-text sm:text-2xl">
+        {title}
+    </h3>
+
+    <p class="mb-8 flex-1 text-sm leading-relaxed text-text-muted">
+        {description}
+    </p>
+
+    <a href={href} class="btn-card mt-auto w-full max-w-[240px]">
+        {cta}
+    </a>
+</article>
