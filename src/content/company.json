@@ -25,11 +25,11 @@
     },
     "navLinks": [
       { "label": "Inicio", "href": "/" },
-      { "label": "Nosotros", "href": "#nosotros" },
-      { "label": "Equipo", "href": "/team" },
-      { "label": "Servicios", "href": "/service" },
-      { "label": "Portafolio", "href": "#portafolio" },
-      { "label": "Contacto", "href": "#contacto" }
+      { "label": "Quiénes Somos", "href": "/#nosotros" },
+      { "label": "Equipo", "href": "/#equipo" },
+      { "label": "Servicios", "href": "/#servicios" },
+      { "label": "Portafolio", "href": "/#portafolio" },
+      { "label": "Contacto", "href": "/#contacto" }
     ]
   }
 ]

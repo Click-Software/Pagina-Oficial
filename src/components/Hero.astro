@@ -15,28 +15,35 @@ const { hero } = company?.data ?? {
 };
 ---
 
-<section id="inicio" class="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-12 relative overflow-hidden">
+<section id="inicio" class="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-12 sm:py-16 md:py-24 relative overflow-hidden">
     <div class="container-stage flex justify-center">
         <div class="w-full max-w-3xl flex flex-col items-center text-center gap-6">
+            <!-- Titular Principal Claro -->
             <h1
-                class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.1] text-center"
+                class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.12] text-center"
             >
                 {hero.headline}
             </h1>
 
-            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-center">
+            <!-- Subtítulo con Propuesta de Valor -->
+            <p class="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-center">
                 {hero.subheadline}
             </p>
 
-            <div class="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
-                <a href={hero.cta.href} class="btn-primary text-base px-6 py-3">
-                {hero.cta.label}
+            <!-- Accesos primarios y CTA de cotización -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
+                <a
+                    href={hero.cta.href}
+                    class="btn-primary text-base px-8 py-3.5 w-full sm:w-auto text-center"
+                >
+                    {hero.cta.label}
                 </a>
                 <a
-                href="#servicios"
-                class="inline-flex items-center justify-center font-bold text-sm px-6 py-3 border border-black/15 bg-surface text-text rounded-md hover:bg-surface-muted transition-colors"
+                    href="#servicios"
+                    class="text-base font-bold text-text-muted hover:text-text px-4 py-3 transition-colors text-center inline-flex items-center gap-1.5"
                 >
-                Explorar servicios
+                    Explorar servicios
+                    <span aria-hidden="true">→</span>
                 </a>
             </div>
         </div>
