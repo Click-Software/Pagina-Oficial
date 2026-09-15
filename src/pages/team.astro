@@ -1,13 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "@/components/NavBar.astro";
-import WindowFrame from "../components/WindowFrame.astro";
-import TeamCard from "../components/TeamCard.astro";
-import { getCollection } from "astro:content";
-
-const team = (await getCollection("team")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+import TeamSection from "@/components/TeamSection.astro";
 ---
 
 <Layout
@@ -15,108 +9,7 @@ const team = (await getCollection("team")).sort(
 	description="Conocé al equipo técnico detrás de Click Software."
 >
 	<NavBar />
-
-  <section class="team-section">
-		<div class="container-stage">
-			<WindowFrame title="EQUIPO_TECNICO.EXE">
-				<header class="team-section__header">
-				<span class="team-section__eyebrow">quiénes construyen tu proyecto</span>
-				<h1 class="team-section__title">El equipo detrás de Click</h1>
-				<p class="team-section__subtitle">
-					Cada persona en este roster es responsable directa de una parte del
-					desarrollo. Así sabés exactamente con quién estás trabajando.
-				</p>
-				</header>
-
-				<div class="team-grid">
-				{
-					team.map((member) => (
-					<TeamCard 
-						name={member.data.name}
-						role={member.data.role}
-						bio={member.data.bio}
-						avatarSrc={member.data.avatar}
-						initials={member.data.name
-						.split(" ")
-						.map((part) => part[0])
-						.join("")
-						.slice(0, 2)
-						.toUpperCase()}
-						accent={
-						member.data.order % 3 === 2
-							? "blue"
-							: member.data.order % 4 === 0
-							? "yellow"
-							: "teal"
-						}
-					/>
-					))
-				}
-				</div>
-			</WindowFrame>
-		</div>
-	</section>
+  <main class="min-h-[calc(100vh-5rem)] flex flex-col justify-center">
+    <TeamSection />
+  </main>
 </Layout>
-
-<style>
-	.team-section {
-		padding: 48px 0;
-	}
-
-	.team-section__header {
-		max-width: 46ch;
-		margin-bottom: 32px;
-	}
-
-	.team-section__eyebrow {
-		display: inline-block;
-		margin-bottom: 8px;
-		font-family: var(--font-mono);
-		font-size: 12px;
-		font-weight: 700;
-		color: var(--color-brand);
-	}
-
-	.team-section__title {
-		font-family: var(--font-sans);
-		font-size: 32px;
-		font-weight: 700;
-		line-height: 40px;
-		letter-spacing: -0.01em;
-		color: var(--color-text);
-		margin-bottom: 12px;
-	}
-
-	.team-section__subtitle {
-		font-family: var(--font-sans);
-		font-size: 16px;
-		line-height: 24px;
-		color: var(--color-text-muted);
-	}
-
-	.team-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
-	}
-
-	@media (max-width: 1023px) {
-		.team-grid {
-		grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 767px) {
-		.team-section {
-		padding: 24px 0;
-		}
-		.team-section__title {
-		font-size: 26px;
-		line-height: 34px;
-		}
-		.team-grid {
-		grid-template-columns: 1fr;
-		gap: 12px;
-		}
-	}
-</style>

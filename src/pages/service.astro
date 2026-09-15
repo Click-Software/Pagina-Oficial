@@ -1,52 +1,15 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import NavBar from "@/components/NavBar.astro";
-import ServiceCard from "@/components/ServiceCard.astro";
-
-import corporateIcon from "@/assets/icons/icon-service-corporate.png";
-import customIcon from "@/assets/icons/icon-service-custom.png";
-import redesignIcon from "@/assets/icons/icon-service-redesign.png";
-
-const services = await getCollection("services");
-const sortedServices = [...services].sort((a, b) => (a.data.order ?? 1) - (b.data.order ?? 1));
-const serviceImages: Record<string, string> = {
-  "desarrollo-web-corporativo": corporateIcon.src,
-  "aplicaciones-web-a-la-medida": customIcon.src,
-  "optimizacion-rediseno-digital": redesignIcon.src,
-};
+import ServicesSection from "@/components/ServicesSection.astro";
 ---
 
 <Layout
   title="Servicios | Click"
   description="Soluciones digitales para empresas, pymes y emprendimientos."
 >
-    <NavBar />
-
-<main class="w-full min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center gap-12 px-4 sm:px-6 lg:px-8 ">
-        <div class="w-full max-w-2xl mx-auto mb-16 text-center flex flex-col items-center">
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-center">
-                Nuestros Servicios
-            </h1>
-            <p class="text-lg text-gray-500 leading-relaxed text-center">
-                Soluciones digitales a la medida de tu empresa.
-            </p>
-        </div>
-
-        <div class="w-full max-w-6xl mx-auto flex flex-wrap justify-center items-stretch gap-8">
-            {
-                sortedServices.map((service) => (
-                    <div class="w-full sm:w-[340px] flex">
-                        <ServiceCard
-                            title={service.data.title}
-                            description={service.data.description}
-                            cta={service.data.ctaLabel}
-                            href={`/contacto?servicio=${service.data.serviceKey}`}
-                            image={serviceImages[service.id] || "/logo.svg"}
-                        />
-                    </div>
-                ))
-            }
-        </div>
-    </main>
-</Layout>
+  <NavBar />
+  <main class="min-h-[calc(100vh-5rem)] flex flex-col justify-center">
+    <ServicesSection />
+  </main>
+</Layout>
