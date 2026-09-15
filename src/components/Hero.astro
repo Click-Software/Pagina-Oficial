@@ -16,29 +16,29 @@ const { hero } = company?.data ?? {
 ---
 
 <section id="inicio" class="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-12 relative overflow-hidden">
-  <div class="container-stage flex justify-center">
-    <div class="w-full max-w-3xl flex flex-col items-center text-center gap-6">
-      <h1
-        class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.1] text-center"
-      >
-        {hero.headline}
-      </h1>
+    <div class="container-stage flex justify-center">
+        <div class="w-full max-w-3xl flex flex-col items-center text-center gap-6">
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.1] text-center"
+            >
+                {hero.headline}
+            </h1>
 
-      <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-center">
-        {hero.subheadline}
-      </p>
+            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-center">
+                {hero.subheadline}
+            </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
-        <a href={hero.cta.href} class="btn-primary text-base px-6 py-3">
-          {hero.cta.label}
-        </a>
-        <a
-          href="#servicios"
-          class="inline-flex items-center justify-center font-bold text-sm px-6 py-3 border border-black/15 bg-surface text-text rounded-md hover:bg-surface-muted transition-colors"
-        >
-          Explorar servicios
-        </a>
-      </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-2 w-full">
+                <a href={hero.cta.href} class="btn-primary text-base px-6 py-3">
+                {hero.cta.label}
+                </a>
+                <a
+                href="#servicios"
+                class="inline-flex items-center justify-center font-bold text-sm px-6 py-3 border border-black/15 bg-surface text-text rounded-md hover:bg-surface-muted transition-colors"
+                >
+                Explorar servicios
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
