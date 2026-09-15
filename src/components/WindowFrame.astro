@@ -1,0 +1,89 @@
+---
+interface Props {
+	title: string;
+	active?: boolean;
+	class?: string;
+}
+
+const { title, active = true, class: className = "" } = Astro.props;
+---
+
+<div class:list={["window-frame", className]}>
+	<div class:list={["window-titlebar", { "is-active": active }]}>
+		<span class="window-titlebar__label">{title}</span>
+		<div class="window-titlebar__controls" aria-hidden="true">
+		<span class="window-control">_</span>
+		<span class="window-control">□</span>
+		<span class="window-control window-control--close">✕</span>
+		</div>
+	</div>
+	<div class="window-body">
+		<slot />
+	</div>
+</div>
+
+<style>
+	.window-frame {
+		border: 3px solid var(--color-border);
+		background-color: #d4d0c8; /* Chassis Gray, DESING.md */
+		box-shadow: 6px 6px 0px var(--color-border);
+	}
+
+	.window-titlebar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 32px;
+		padding: 0 var(--space-sm, 8px) 0 var(--space-md, 12px);
+		background-color: #808080;
+		color: #d4d0c8;
+		border-bottom: 3px solid var(--color-border);
+	}
+
+	.window-titlebar.is-active {
+		background-color: var(--color-brand-container);
+		color: #ffffff;
+	}
+
+	.window-titlebar__label {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+	}
+
+	.window-titlebar__controls {
+		display: flex;
+		gap: 4px;
+	}
+
+	.window-control {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 18px;
+		height: 18px;
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 700;
+		color: var(--color-text);
+		background-color: #d4d0c8;
+		border: 2px solid var(--color-border);
+	}
+
+	.window-control--close {
+		color: #ffffff;
+		background-color: #ff2b44;
+	}
+
+	.window-body {
+		padding: var(--space-lg, 24px);
+		background-color: var(--color-bg);
+	}
+
+	@media (max-width: 767px) {
+		.window-body {
+		padding: 12px;
+		}
+	}
+</style>

@@ -1,0 +1,136 @@
+---
+interface Props {
+	name: string;
+	role: string;
+	bio: string;
+	avatarSrc?: string;
+	initials: string;
+	accent?: "teal" | "yellow" | "blue";
+}
+
+const { name, role, bio, avatarSrc, initials, accent = "teal" } = Astro.props;
+
+const accentMap = {
+	teal: { bg: "#008080", fg: "#ffffff" },
+	yellow: { bg: "#ffde00", fg: "#000000" },
+	blue: { bg: "#1b3bff", fg: "#ffffff" },
+} as const;
+
+const { bg: accentBg, fg: accentFg } = accentMap[accent];
+---
+
+<article class="team-card">
+	<div class="team-card__avatar-frame">
+		{
+		avatarSrc ? (
+			<img
+			src={avatarSrc}
+			alt={`Foto de ${name}`}
+			width="160"
+			height="160"
+			loading="lazy"
+			class="team-card__avatar-img"
+			/>
+		) : (
+			<span class="team-card__avatar-fallback" aria-hidden="true">
+			{initials}
+			</span>
+		)
+		}
+	</div>
+
+	<h3 class="team-card__name">{name}</h3>
+
+	<span
+		class="team-card__role"
+		style={`background-color:${accentBg}; color:${accentFg};`}
+	>
+		{role}
+	</span>
+
+	<p class="team-card__bio">{bio}</p>
+</article>
+
+<style>
+	.team-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 10px;
+		padding: 24px 18px;
+		background-color: var(--color-surface);
+		border: 2px solid var(--color-border);
+		box-shadow: 4px 4px 0px var(--color-border);
+		transition: transform 0.1s ease, box-shadow 0.1s ease;
+	}
+
+	.team-card:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 6px 6px 0px var(--color-border);
+	}
+
+	.team-card__avatar-frame {
+		width: 96px;
+		height: 96px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--color-surface-high);
+		border: 2px solid var(--color-border);
+		overflow: hidden;
+	}
+
+	.team-card__avatar-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.team-card__avatar-fallback {
+		font-family: var(--font-mono);
+		font-size: 28px;
+		font-weight: 800;
+		color: var(--color-text);
+	}
+
+	.team-card__name {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 48px;
+		margin: 0;
+		font-family: var(--font-sans);
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 24px;
+		color: var(--color-text);
+		text-align: center;
+	}
+
+	.team-card__role {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 42px;
+		box-sizing: border-box;
+		padding: 3px 10px;
+		font-family: var(--font-mono);
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		border: 2px solid var(--color-border);
+		text-align: center;
+	}
+
+	.team-card__bio {
+		font-family: var(--font-sans);
+		font-size: 14px;
+		line-height: 20px;
+		color: var(--color-text-muted);
+		max-width: 26ch;
+	}
+</style>

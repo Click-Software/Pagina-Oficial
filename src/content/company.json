@@ -26,7 +26,7 @@
     "navLinks": [
       { "label": "Inicio", "href": "/" },
       { "label": "Nosotros", "href": "#nosotros" },
-      { "label": "Equipo", "href": "#equipo" },
+      { "label": "Equipo", "href": "/team" },
       { "label": "Servicios", "href": "/service" },
       { "label": "Portafolio", "href": "#portafolio" },
       { "label": "Contacto", "href": "#contacto" }
