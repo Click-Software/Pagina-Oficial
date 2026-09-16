@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+
+const [company] = await getCollection("company");
+const { about } = company.data;
+---
+
+<section class="container-stage">
+    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
+        <h5 class="mb-3 text-2xl font-semibold tracking-tñight text-heading leading-8">
+            Misión
+        </h5>
+        <p class="text-body">{about.mission}</p>
+    </div>
+
+    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
+        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">
+            Visión
+        </h5>
+        <p class="text-body">{about.vision}</p>
+    </div>
+
+    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
+        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">
+            Filosofía
+        </h5>
+        <p class="text-body">{about.customPhilosophy}</p>
+    </div>
+</section>
+
+<style>
+    .about-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: var(--color-surface);
+        border: 2.5px solid var(--color-border);
+        border-radius: 1.15rem;
+        box-shadow: 6px 6px 0px var(--color-border);
+        padding: 2.5rem 1.75rem 2rem;
+        height: 100%;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+</style>
