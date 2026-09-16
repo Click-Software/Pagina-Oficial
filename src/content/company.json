@@ -24,12 +24,12 @@
       "responseTime": "Respuesta en menos de 24 horas hábiles"
     },
     "navLinks": [
-      { "label": "Inicio", "href": "/" },
-      { "label": "Quiénes Somos", "href": "/#nosotros" },
-      { "label": "Equipo", "href": "/#equipo" },
-      { "label": "Servicios", "href": "/#servicios" },
-      { "label": "Portafolio", "href": "/#portafolio" },
-      { "label": "Contacto", "href": "/#contacto" }
+      { "label": "Inicio", "href": "#inicio" },
+      { "label": "Quiénes Somos", "href": "#nosotros" },
+      { "label": "Equipo", "href": "#equipo" },
+      { "label": "Servicios", "href": "#servicios" },
+      { "label": "Portafolio", "href": "#portafolio" },
+      { "label": "Contacto", "href": "#contacto" }
     ]
   }
 ]

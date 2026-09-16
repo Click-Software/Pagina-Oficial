@@ -1,0 +1,24 @@
+---
+import ContactChannels from "./contact/ContactChannels.astro";
+import ContactForm from "./contact/ContactForm.astro";
+---
+
+<section id="contacto" class="site-section">
+  <div class="container-stage flex flex-col items-center">
+    <!-- Encabezado de sección -->
+    <div class="w-full max-w-2xl mx-auto mb-10 text-center flex flex-col items-center">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-center text-text">
+        Ponte en contacto
+      </h2>
+      <p class="text-base sm:text-lg text-text-muted leading-relaxed text-center">
+        ¿Tienes un proyecto en mente o necesitas asesoría técnica para digitalizar tu negocio? Déjanos un mensaje y te responderemos en menos de 24 horas.
+      </p>
+    </div>
+
+    <!-- Canales directos (WhatsApp / Email) -->
+    <ContactChannels />
+
+    <!-- Formulario de cotización modular -->
+    <ContactForm />
+  </div>
+</section>
