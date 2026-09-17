@@ -1,45 +1,39 @@
 ---
 import { getCollection } from "astro:content";
+import AboutCard from "@/components/AboutCard.astro";
 
 const [company] = await getCollection("company");
+if (!company) {
+    throw new Error('No se encontró la colección "company".');
+}
 const { about } = company.data;
 ---
 
-<section class="container-stage">
-    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
-        <h5 class="mb-3 text-2xl font-semibold tracking-tñight text-heading leading-8">
-            Misión
-        </h5>
-        <p class="text-body">{about.mission}</p>
+<section id="nosotros" class="about-section container-stage">
+    <div class="w-full max-w-2xl mx-auto mb-14 text-center flex flex-col items-center">
+        <span class="inline-block mb-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+            Conócenos
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-center text-text">
+            Quiénes Somos
+        </h2>
+        <p class="text-base sm:text-lg text-text-muted leading-relaxed text-center">
+            El propósito, la visión y los principios que guían la construcción de cada uno de nuestros proyectos.
+        </p>
     </div>
 
-    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
-        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">
-            Visión
-        </h5>
-        <p class="text-body">{about.vision}</p>
-    </div>
-
-    <div class="bg-neutral-primary-soft border border-default rounded-base p-6 about-card">
-        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">
-            Filosofía
-        </h5>
-        <p class="text-body">{about.customPhilosophy}</p>
+    <div class="container-stage">
+        {about.map((card) => (
+            <AboutCard {...card} />
+        ))}
     </div>
 </section>
 
 <style>
-    .about-card {
+    .container-stage {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        background-color: var(--color-surface);
-        border: 2.5px solid var(--color-border);
-        border-radius: 1.15rem;
-        box-shadow: 6px 6px 0px var(--color-border);
-        padding: 2.5rem 1.75rem 2rem;
-        height: 100%;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        flex-direction: column; 
+        gap: 2rem;             
     }
 </style>

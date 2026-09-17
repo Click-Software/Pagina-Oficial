@@ -4,7 +4,7 @@
     "name": "Ing. Principal de Software",
     "role": "Arquitectura de Software & Cloud",
     "bio": "Especialista en sistemas distribuidos, rendimiento edge en Cloudflare y diseño de arquitecturas resilientes con cero deuda técnica.",
-    "avatar": "/team/user-solid-full.svg",
+    "avatar": "public/images/team/user-solid-full.svg",
     "order": 1
   },
   {
@@ -12,7 +12,7 @@
     "name": "Frontend Lead Engineer",
     "role": "Frontend Lead",
     "bio": "Líder de interfaces web modernas en React 19 y Astro, obsesionado con la velocidad de renderizado (Core Web Vitals 100/100) y accesibilidad WCAG AAA.",
-    "avatar": "/team/user-solid-full.svg",
+    "avatar": "public/images/team/user-solid-full.svg",
     "order": 2
   },
   {
@@ -20,7 +20,7 @@
     "name": "Senior Backend Engineer",
     "role": "Backend Engineer",
     "bio": "Experto en APIs de alto rendimiento, consistencia transaccional en bases de datos y seguridad de datos a nivel corporativo.",
-    "avatar": "/team/user-solid-full.svg",
+    "avatar": "public/images/team/user-solid-full.svg",
     "order": 3
   },
   {
@@ -28,7 +28,7 @@
     "name": "Lead Product Designer",
     "role": "Diseñador UI/UX",
     "bio": "Diseño centrado en conversión y usabilidad, creación de design systems escalables y experiencias digitales pulidas sin patrones genéricos.",
-    "avatar": "/team/user-solid-full.svg",
+    "avatar": "public/images/team/user-solid-full.svg",
     "order": 4
   }
 ]
