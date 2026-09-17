@@ -1,0 +1,187 @@
+---
+const signals = [
+  {
+    id: 'clarity',
+    label: 'Claridad',
+    short: '01',
+    title: 'Que tu propuesta se entienda en segundos.',
+    copy: 'Convertimos ideas complejas en interfaces que orientan, explican y mueven a la siguiente accion sin friccion.',
+    metric: '3.2x',
+    metricLabel: 'mas foco en la propuesta',
+    color: 'teal',
+  },
+  {
+    id: 'velocity',
+    label: 'Velocidad',
+    short: '02',
+    title: 'Lanzar rapido sin construir deuda.',
+    copy: 'Diseñamos un sistema que permite validar temprano, medir lo importante y crecer con una base tecnica confiable.',
+    metric: '68%',
+    metricLabel: 'menos tiempo perdido',
+    color: 'yellow',
+  },
+  {
+    id: 'presence',
+    label: 'Presencia',
+    short: '03',
+    title: 'Ser imposible de confundir.',
+    copy: 'Tu sitio deja de ser un folleto y se convierte en una experiencia de marca que demuestra por que elegirte.',
+    metric: '100%',
+    metricLabel: 'identidad propia',
+    color: 'blue',
+  },
+];
+---
+
+<section id="estrategia" class="strategy-lab site-section" data-strategy-lab>
+  <div class="container-stage">
+    <div class="strategy-lab__intro">
+      <div>
+        <span class="strategy-lab__eyebrow">CLICK / OPERATING SYSTEM</span>
+        <h2>Diseñamos la señal.<br /><span>Construimos el sistema.</span></h2>
+      </div>
+      <p>
+        Una presencia digital premium no depende de un solo efecto. Es la suma de estrategia, narrativa,
+        diseño y tecnologia trabajando en la misma direccion.
+      </p>
+    </div>
+
+    <div class="strategy-lab__layout">
+      <div class="strategy-lab__signals" role="tablist" aria-label="Pilares de trabajo">
+        {
+          signals.map((signal, index) => (
+            <button
+              class:list={['strategy-signal', { 'is-active': index === 0 }]}
+              type="button"
+              role="tab"
+              aria-selected={index === 0}
+              aria-controls={`signal-panel-${signal.id}`}
+              id={`signal-tab-${signal.id}`}
+              data-signal-tab={signal.id}
+            >
+              <span class="strategy-signal__number">{signal.short}</span>
+              <span class="strategy-signal__label">{signal.label}</span>
+              <span class="strategy-signal__arrow" aria-hidden="true">↗</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="strategy-lab__panel">
+        {
+          signals.map((signal, index) => (
+            <article
+              class:list={['signal-panel', `signal-panel--${signal.color}`, { 'is-active': index === 0 }]}
+              id={`signal-panel-${signal.id}`}
+              role="tabpanel"
+              aria-labelledby={`signal-tab-${signal.id}`}
+              data-signal-panel={signal.id}
+              hidden={index !== 0}
+            >
+              <div class="signal-panel__top">
+                <span class="signal-panel__status"><i></i> SIGNAL {signal.short} / ONLINE</span>
+                <span class="signal-panel__index">0{index + 1} / 03</span>
+              </div>
+              <div class="signal-panel__body">
+                <div>
+                  <h3>{signal.title}</h3>
+                  <p>{signal.copy}</p>
+                  <a href="#contacto" class="signal-panel__link">Activar esta señal <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="signal-panel__metric">
+                  <strong>{signal.metric}</strong>
+                  <span>{signal.metricLabel}</span>
+                  <div class="signal-panel__bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+              <div class="signal-panel__orbit" aria-hidden="true"><span></span><b></b><i></i></div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="strategy-lab__footer">
+      <span><i class="live-dot"></i> CAPACIDAD DISPONIBLE</span>
+      <span>DESIGN / ENGINEERING / IMPACT</span>
+      <span>SCROLL TO EXPLORE <b>↓</b></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .strategy-lab { position: relative; overflow: hidden; background: var(--color-surface-muted); color: var(--color-text); border-top: 1px solid rgba(18,18,18,.12); }
+  .strategy-lab::before { content: ''; position: absolute; inset: 0; opacity: .16; pointer-events: none; background-image: linear-gradient(rgba(18,18,18,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(18,18,18,.22) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent); }
+  .strategy-lab__intro, .strategy-lab__layout, .strategy-lab__footer { position: relative; z-index: 1; }
+  .strategy-lab__intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 3rem; align-items: end; margin-bottom: 3.5rem; }
+  .strategy-lab__eyebrow, .strategy-lab__footer, .signal-panel__status, .signal-panel__index { font-family: var(--font-mono); font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
+  .strategy-lab__eyebrow { color: var(--color-accent); }
+  .strategy-lab h2 { max-width: 15ch; margin-top: .75rem; font-size: clamp(2.2rem, 4.7vw, 4.4rem); line-height: 1; letter-spacing: -.065em; }
+  .strategy-lab h2 span { color: var(--color-brand); }
+  .strategy-lab__intro p { max-width: 39ch; margin-left: auto; color: var(--color-text-muted); font-size: 1rem; line-height: 1.7; }
+  .strategy-lab__layout { display: grid; grid-template-columns: minmax(190px, .32fr) minmax(0, 1fr); gap: 1rem; }
+  .strategy-lab__signals { display: flex; flex-direction: column; gap: .5rem; }
+  .strategy-signal { display: grid; grid-template-columns: 2.5rem 1fr auto; gap: .8rem; align-items: center; min-height: 5.2rem; padding: 1rem; border: 1px solid rgba(18,18,18,.16); color: var(--color-text); background: rgba(255,255,255,.55); text-align: left; cursor: pointer; transition: background .25s ease, color .25s ease, transform .25s ease; }
+  .strategy-signal:hover, .strategy-signal.is-active { color: var(--color-text); background: var(--color-accent); transform: translateX(6px); }
+  .strategy-signal__number { font-family: var(--font-mono); font-size: .7rem; opacity: .68; }
+  .strategy-signal__label { font-size: 1rem; font-weight: 800; }
+  .strategy-signal__arrow { font-size: 1.3rem; transition: transform .25s ease; }
+  .strategy-signal.is-active .strategy-signal__arrow { transform: rotate(45deg); }
+  .strategy-lab__panel { min-width: 0; }
+  .signal-panel { position: relative; min-height: 22rem; padding: clamp(1.25rem, 4vw, 2.5rem); overflow: hidden; border: 1px solid rgba(18,18,18,.18); background: var(--color-brand-container); color: #fff; }
+  .signal-panel[hidden] { display: none; }
+  .signal-panel--yellow { color: var(--color-text); background: var(--color-accent); }
+  .signal-panel--blue { background: #2439c9; }
+  .signal-panel__top, .signal-panel__body { position: relative; z-index: 1; }
+  .signal-panel__top { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.28); }
+  .signal-panel--yellow .signal-panel__top { border-color: rgba(18,18,18,.2); }
+  .signal-panel__status { color: var(--color-accent); }
+  .signal-panel--yellow .signal-panel__status { color: var(--color-brand); }
+  .signal-panel__status i, .live-dot { display: inline-block; width: .5rem; height: .5rem; margin-right: .4rem; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 5px color-mix(in srgb, currentColor 18%, transparent); }
+  .signal-panel__body { display: grid; grid-template-columns: minmax(0, 1fr) 10rem; gap: 2rem; align-items: end; padding-top: 2rem; }
+  .signal-panel h3 { max-width: 14ch; font-size: clamp(1.7rem, 3vw, 3rem); line-height: 1; letter-spacing: -.05em; }
+  .signal-panel p { max-width: 44ch; margin-top: 1rem; color: rgba(255,255,255,.7); line-height: 1.6; }
+  .signal-panel--yellow p { color: rgba(18,18,18,.7); }
+  .signal-panel__link { display: inline-flex; gap: .6rem; margin-top: 1.5rem; color: inherit; font-family: var(--font-mono); font-size: .75rem; font-weight: 800; text-decoration: none; text-transform: uppercase; }
+  .signal-panel__link span { transition: transform .2s ease; }
+  .signal-panel__link:hover span { transform: translateX(5px); }
+  .signal-panel__metric { align-self: end; }
+  .signal-panel__metric strong { display: block; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: .85; letter-spacing: -.09em; }
+  .signal-panel__metric span { display: block; margin-top: .8rem; font-family: var(--font-mono); font-size: .65rem; font-weight: 800; text-transform: uppercase; }
+  .signal-panel__bars { display: flex; align-items: end; gap: .25rem; height: 3rem; margin-top: 1.5rem; }
+  .signal-panel__bars i { display: block; width: .55rem; background: currentColor; animation: signal-grow .9s cubic-bezier(.16,1,.3,1) both; }
+  .signal-panel__bars i:nth-child(1) { height: 35%; }.signal-panel__bars i:nth-child(2) { height: 55%; animation-delay: .1s; }.signal-panel__bars i:nth-child(3) { height: 48%; animation-delay: .2s; }.signal-panel__bars i:nth-child(4) { height: 78%; animation-delay: .3s; }.signal-panel__bars i:nth-child(5) { height: 100%; animation-delay: .4s; }
+  .signal-panel__orbit { position: absolute; right: -4rem; bottom: -6rem; width: 20rem; height: 20rem; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; transform: rotate(-25deg); }
+  .signal-panel__orbit::before, .signal-panel__orbit::after { position: absolute; inset: 15%; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; content: ''; }
+  .signal-panel__orbit::after { inset: 30%; }
+  .signal-panel__orbit span, .signal-panel__orbit b, .signal-panel__orbit i { position: absolute; display: block; width: .65rem; height: .65rem; border-radius: 50%; background: currentColor; }
+  .signal-panel__orbit span { top: 27%; left: 14%; }.signal-panel__orbit b { top: 7%; right: 31%; }.signal-panel__orbit i { right: 5%; bottom: 28%; }
+  .strategy-lab__footer { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; color: var(--color-text-muted); }
+  .strategy-lab__footer b { color: var(--color-brand); }
+  @keyframes signal-grow { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(1); transform-origin: bottom; } }
+  @media (max-width: 720px) { .strategy-lab__intro, .strategy-lab__layout { grid-template-columns: 1fr; gap: 2rem; }.strategy-lab__intro p { margin-left: 0; }.strategy-lab__signals { display: grid; grid-template-columns: repeat(3, 1fr); }.strategy-signal { grid-template-columns: 1fr auto; min-height: 4rem; }.strategy-signal__number { display: none; }.strategy-signal__label { font-size: .8rem; }.strategy-lab__footer { flex-wrap: wrap; font-size: .58rem; }.signal-panel__body { grid-template-columns: 1fr; }.signal-panel__metric { display: grid; grid-template-columns: auto 1fr; gap: .6rem 1rem; align-items: end; }.signal-panel__metric strong { grid-row: span 2; }.signal-panel__bars { grid-column: 2; margin-top: 0; } }
+  @media (prefers-reduced-motion: reduce) { .strategy-signal, .signal-panel__bars i { transition: none; animation: none; } }
+</style>
+
+<script>
+  const strategyLab = document.querySelector('[data-strategy-lab]');
+  if (strategyLab) {
+    const tabs = strategyLab.querySelectorAll<HTMLButtonElement>('[data-signal-tab]');
+    const panels = strategyLab.querySelectorAll<HTMLElement>('[data-signal-panel]');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.signalTab;
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', String(active));
+        });
+        panels.forEach((panel) => {
+          const active = panel.dataset.signalPanel === id;
+          panel.hidden = !active;
+          panel.classList.toggle('is-active', active);
+        });
+      });
+    });
+  }
+</script>

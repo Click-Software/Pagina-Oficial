@@ -15,23 +15,25 @@ const { hero } = company?.data ?? {
 };
 ---
 
-<section id="inicio" class="min-h-[calc(100vh-4rem)] w-full flex items-center justify-center py-12 sm:py-16 md:py-24 relative overflow-hidden">
-    <div class="container-stage flex justify-center">
-        <div class="w-full max-w-3xl flex flex-col items-center text-center gap-6">
+<section id="inicio" class="hero-premium min-h-[calc(100vh-4rem)] w-full flex items-center py-12 sm:py-16 md:py-24 relative overflow-hidden">
+    <div class="container-stage">
+        <div class="hero-premium__grid">
+        <div class="w-full max-w-3xl flex flex-col items-start gap-6">
+            <div class="hero-premium__eyebrow"><i></i> CLICK SOFTWARE / DIGITAL PARTNER <span>EST. 2025</span></div>
             <!-- Titular Principal Claro -->
             <h1
-                class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.12] text-center"
+                class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-text leading-[1.02] text-left"
             >
                 {hero.headline}
             </h1>
 
             <!-- Subtítulo con Propuesta de Valor -->
-            <p class="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-center">
+            <p class="text-base sm:text-lg md:text-xl text-text-muted leading-relaxed max-w-2xl text-left">
                 {hero.subheadline}
             </p>
 
             <!-- Accesos primarios y CTA de cotización -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row items-start gap-4 pt-4 w-full sm:w-auto">
                 <a
                     href={hero.cta.href}
                     class="btn-primary text-base px-8 py-3.5 w-full sm:w-auto text-center"
@@ -40,12 +42,45 @@ const { hero } = company?.data ?? {
                 </a>
                 <a
                     href="#servicios"
-                    class="text-base font-bold text-text-muted hover:text-text px-4 py-3 transition-colors text-center inline-flex items-center gap-1.5"
+                    class="text-base font-bold text-text-muted hover:text-text px-0 sm:px-4 py-3 transition-colors text-center inline-flex items-center gap-1.5"
                 >
                     Explorar servicios
                     <span aria-hidden="true">→</span>
                 </a>
             </div>
+            <div class="hero-premium__proof"><span>01</span> Estrategia que aterriza <b></b><span>02</span> Software que escala <b></b><span>03</span> Diseño que permanece</div>
+        </div>
+        <div class="hero-premium__visual" aria-label="Sistema visual de Click">
+            <div class="hero-premium__orbit hero-premium__orbit--outer"></div>
+            <div class="hero-premium__orbit hero-premium__orbit--inner"></div>
+            <div class="hero-premium__core"><span>CLICK</span><strong>OS</strong></div>
+            <span class="hero-premium__node hero-premium__node--one">IDEA</span>
+            <span class="hero-premium__node hero-premium__node--two">BUILD</span>
+            <span class="hero-premium__node hero-premium__node--three">GROW</span>
+            <div class="hero-premium__readout"><span>LIVE SYSTEM</span><b>99.98%</b><small>READY TO MOVE</small></div>
+        </div>
         </div>
     </div>
 </section>
+
+<style>
+  .hero-premium { border-bottom: 1px solid rgba(18,18,18,.12); background: radial-gradient(circle at 80% 50%, rgba(0,128,128,.12), transparent 32%), var(--color-bg); }
+  .hero-premium__grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(260px, .92fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .hero-premium__eyebrow { display: flex; align-items: center; flex-wrap: wrap; gap: .55rem; color: var(--color-brand); font: 800 .68rem var(--font-mono); letter-spacing: .08em; }
+  .hero-premium__eyebrow i { width: .6rem; height: .6rem; border-radius: 50%; background: #00a56a; box-shadow: 0 0 0 5px rgba(0,165,106,.15); animation: hero-pulse 2s ease-in-out infinite; }
+  .hero-premium__eyebrow span { color: var(--color-text-muted); }
+  .hero-premium h1 { max-width: 12ch; font-size: clamp(2.8rem, 5.2vw, 5.2rem); }
+  .hero-premium h1::first-line { letter-spacing: -.075em; }
+  .hero-premium__proof { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; color: var(--color-text-muted); font: 700 .66rem var(--font-mono); text-transform: uppercase; }
+  .hero-premium__proof span { color: var(--color-brand); }.hero-premium__proof b { width: 3px; height: 3px; border-radius: 50%; background: var(--color-text-muted); }
+  .hero-premium__visual { position: relative; display: grid; place-items: center; min-height: min(38vw, 26rem); isolation: isolate; }
+  .hero-premium__orbit { position: absolute; border: 1px solid rgba(0,128,128,.35); border-radius: 50%; transform: rotate(-24deg); animation: hero-orbit 16s linear infinite; }
+  .hero-premium__orbit--outer { width: min(29vw, 21rem); aspect-ratio: 1; }.hero-premium__orbit--inner { width: min(21vw, 15rem); aspect-ratio: 1; border-color: rgba(250,225,0,.75); transform: rotate(62deg); animation-duration: 11s; animation-direction: reverse; }
+  .hero-premium__core { display: grid; place-items: center; width: clamp(7rem, 13vw, 10rem); aspect-ratio: 1; color: #fff; background: var(--color-brand); border: 2px solid var(--color-text); box-shadow: 6px 6px 0 var(--color-text); transform: rotate(-8deg); animation: hero-core 4s ease-in-out infinite; }
+  .hero-premium__core span { font: 800 .72rem var(--font-mono); letter-spacing: .18em; }.hero-premium__core strong { font-size: clamp(3.3rem, 7vw, 5.5rem); line-height: .75; letter-spacing: -.1em; }
+  .hero-premium__node { position: absolute; padding: .5rem .7rem; color: var(--color-text); background: var(--color-accent); border: 1px solid var(--color-text); box-shadow: 3px 3px 0 var(--color-text); font: 800 .62rem var(--font-mono); animation: hero-node 4s ease-in-out infinite alternate; }.hero-premium__node--one { top: 12%; left: 13%; }.hero-premium__node--two { right: 5%; top: 42%; animation-delay: -1.3s; background: #fff; }.hero-premium__node--three { left: 17%; bottom: 10%; animation-delay: -2.4s; background: #00a56a; }
+  .hero-premium__readout { position: absolute; right: 0; bottom: 3%; display: grid; gap: .2rem; padding: .9rem; min-width: 8rem; border: 1px solid var(--color-text); background: rgba(255,255,255,.72); backdrop-filter: blur(8px); font-family: var(--font-mono); }.hero-premium__readout span,.hero-premium__readout small { font-size: .56rem; font-weight: 800; }.hero-premium__readout b { font-size: 1.5rem; letter-spacing: -.08em; }
+  @keyframes hero-pulse { 50% { opacity: .4; transform: scale(.75); } } @keyframes hero-orbit { to { transform: rotate(336deg); } } @keyframes hero-core { 50% { transform: rotate(-4deg) translateY(-8px); } } @keyframes hero-node { to { translate: 0 -7px; } }
+  @media (max-width: 720px) { .hero-premium__grid { grid-template-columns: 1fr; }.hero-premium__visual { min-height: 20rem; }.hero-premium__orbit--outer { width: 17rem; }.hero-premium__orbit--inner { width: 12rem; }.hero-premium__readout { right: 4%; }.hero-premium__node--one { left: 4%; } }
+  @media (prefers-reduced-motion: reduce) { .hero-premium__eyebrow i,.hero-premium__orbit,.hero-premium__core,.hero-premium__node { animation: none; } }
+</style>
