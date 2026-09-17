@@ -23,7 +23,7 @@ const { title, description, image, noindex } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
 
-    <!-- Inyección y precarga optimizada de fuentes con Astro Fonts API -->
+    <!-- InyecciÃ³n y precarga optimizada de fuentes con Astro Fonts API -->
     <Font cssVariable="--font-sans" preload />
     <Font cssVariable="--font-mono" />
 
@@ -33,5 +33,24 @@ const { title, description, image, noindex } = Astro.props;
   </head>
   <body>
     <slot />
+    <script>
+      const motionItems = document.querySelectorAll<HTMLElement>(
+        '.site-section > .container-stage, .portfolio-section__header, .portfolio-grid > *, .about-card, .team-card, .contact-form, .contact-channels'
+      );
+      const motionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            motionObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+
+      motionItems.forEach((item, index) => {
+        item.setAttribute('data-motion-reveal', '');
+        item.style.transitionDelay = `${Math.min(index % 7, 6) * 60}ms`;
+        motionObserver.observe(item);
+      });
+    </script>
   </body>
 </html>
