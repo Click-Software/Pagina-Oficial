@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import WindowFrame from "@/components/common/WindowFrame.astro";
 import ContactFormIsland from "@/components/islands/ContactForm";
-
+ 
 const services = await getCollection("services");
 const serviceOptions = services
   .sort((a, b) => (a.data.order ?? 1) - (b.data.order ?? 1))
@@ -10,10 +10,14 @@ const serviceOptions = services
     key: s.data.serviceKey,
     title: s.data.title,
   }));
+ 
+const company = await getEntry("company", "info");
+const contactEmail = company?.data.contact.email ?? "contacto@clicksoftware.dev";
 ---
-
+ 
 <div id="formulario-contacto" class="w-full max-w-xl mx-auto">
   <WindowFrame title="COTIZACION_FORM">
-    <ContactFormIsland client:visible services={serviceOptions} />
+    <ContactFormIsland client:visible services={serviceOptions} contactEmail={contactEmail} />
   </WindowFrame>
 </div>
+ 

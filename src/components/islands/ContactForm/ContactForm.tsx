@@ -11,7 +11,12 @@ const FIELDS = [
   { name: "companyName", label: "Empresa / Giro comercial", type: "text", placeholder: "Ej. Acme Corp" },
 ];
 
-export default function ContactForm({ services }: { services: ServiceOption[] }) {
+interface Props {
+  services: ServiceOption[];
+  contactEmail: string;
+}
+
+export default function ContactForm({ services, contactEmail }: Props) {
   const [service, setService] = useState("general");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
@@ -26,15 +31,30 @@ export default function ContactForm({ services }: { services: ServiceOption[] })
     const fd = new FormData(e.currentTarget);
     const get = (k: string) => String(fd.get(k) || "").trim();
 
+    const fullName = get("fullName");
+    const email = get("email");
+    const companyName = get("companyName");
+    const requirement = get("requirement");
+
     const errs: Record<string, string> = {};
-    if (!get("fullName")) errs.fullName = "Este campo es obligatorio.";
-    if (!get("email")) errs.email = "Este campo es obligatorio.";
-    else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(get("email"))) errs.email = "Correo electrónico no válido";
-    if (!get("companyName")) errs.companyName = "Este campo es obligatorio.";
-    if (!get("requirement")) errs.requirement = "Este campo es obligatorio.";
+    if (!fullName) errs.fullName = "Este campo es obligatorio.";
+    if (!email) errs.email = "Este campo es obligatorio.";
+    else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email)) errs.email = "Correo electrónico no válido";
+    if (!companyName) errs.companyName = "Este campo es obligatorio.";
+    if (!requirement) errs.requirement = "Este campo es obligatorio.";
 
     setErrors(errs);
     if (Object.keys(errs).length) return;
+
+    // Antes: aquí solo se mostraba el mensaje de éxito sin mandar nada a ningún lado.
+    // Ahora: armamos un mailto: con todos los datos capturados y lo abrimos,
+    // para que el cliente de correo del usuario quede listo para enviarlo a Click.
+    const serviceTitle = services.find((s) => s.key === service)?.title ?? "General";
+    const subject = encodeURIComponent(`Solicitud de cotización — ${fullName}`);
+    const body = encodeURIComponent(
+      `Nombre: ${fullName}\nCorreo: ${email}\nEmpresa: ${companyName}\nServicio de interés: ${serviceTitle}\n\nRequerimiento:\n${requirement}`
+    );
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
     e.currentTarget.reset();
     setService("general");
@@ -67,10 +87,18 @@ export default function ContactForm({ services }: { services: ServiceOption[] })
         <label htmlFor="service" className="font-mono text-xs font-bold uppercase tracking-wider text-text">
           Servicio de Interés
         </label>
-        <select id="service" name="service" value={service} onChange={(e) => setService(e.target.value)} className="retro-input">
+        <select
+          id="service"
+          name="service"
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+          className="retro-input"
+        >
           <option value="general">Selecciona un servicio (Opcional)</option>
           {services.map((s) => (
-            <option key={s.key} value={s.key}>{s.title}</option>
+            <option key={s.key} value={s.key}>
+              {s.title}
+            </option>
           ))}
         </select>
       </div>
@@ -87,7 +115,9 @@ export default function ContactForm({ services }: { services: ServiceOption[] })
           onChange={() => clearErr("requirement")}
           className={`${cls("requirement")} resize-y`}
         />
-        {errors.requirement && <span className="font-mono text-xs text-red-600 font-bold">{errors.requirement}</span>}
+        {errors.requirement && (
+          <span className="font-mono text-xs text-red-600 font-bold">{errors.requirement}</span>
+        )}
       </div>
 
       <div className="pt-2 flex justify-end">
@@ -97,8 +127,12 @@ export default function ContactForm({ services }: { services: ServiceOption[] })
       </div>
 
       {done && (
-        <div role="alert" className="p-3 border font-mono text-xs text-center font-bold border-brand bg-brand/10 text-text">
-          ¡Solicitud enviada con éxito! Tu requerimiento ha sido recibido correctamente.
+        <div
+          role="alert"
+          className="p-3 border font-mono text-xs text-center font-bold border-brand bg-brand/10 text-text"
+        >
+          ¡Listo! Abrimos tu cliente de correo con el mensaje ya redactado — solo confírmalo para enviarlo a
+          Click.
         </div>
       )}
     </form>
