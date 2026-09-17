@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import WindowFrame from "./WindowFrame.astro";
-import TeamCard from "./TeamCard.astro";
+import WindowFrame from "@/components/common/WindowFrame.astro";
+import TeamCard from "@/components/ui/TeamCard.astro";
 
 const team = (await getCollection("team")).sort(
   (a, b) => a.data.order - b.data.order

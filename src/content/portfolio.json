@@ -4,7 +4,7 @@
     "title": "Portal Institucional & Onboarding Digital",
     "client": "Fintech Global",
     "problemSolved": "Modernización de la presencia institucional con arquitectura estática ultra veloz, logrando reducción de tiempo de carga en 70% y cumpliendo auditorías de seguridad bancaria.",
-    "image": "/portfolio/project-fintech.webp",
+    "image": "/images/portfolio/project-fintech.webp",
     "imageAlt": "Vista del portal institucional fintech",
     "tags": ["Astro", "React 19", "TypeScript", "Cloudflare"],
     "order": 1
@@ -14,7 +14,7 @@
     "title": "Plataforma de Control Logístico B2B",
     "client": "Operadora de Carga y Envíos",
     "problemSolved": "Desarrollo integral de software de gestión en tiempo real con monitoreo de flotas, generación automática de albaranes y panel analítico con alta concurrencia.",
-    "image": "/portfolio/project-logistics.webp",
+    "image": "/images/portfolio/project-logistics.webp",
     "imageAlt": "Panel de control del sistema de logística",
     "tags": ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
     "order": 2
@@ -24,7 +24,7 @@
     "title": "Aceleración y Optimización de Comercio Digital",
     "client": "Retail y Comercio Electrónico",
     "problemSolved": "Intervención técnica en tienda digital con cuellos de botella de renderizado. Se alcanzó TBT = 0 ms y carga en menos de 1 segundo, elevando conversiones un 28%.",
-    "image": "/portfolio/project-ecommerce.webp",
+    "image": "/images/portfolio/project-ecommerce.webp",
     "imageAlt": "Dashboard y métricas de aceleración de comercio digital",
     "tags": ["React", "Edge Caching", "Web Vitals", "TypeScript"],
     "order": 3

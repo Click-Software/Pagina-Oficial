@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import AboutCard from "@/components/AboutCard.astro";
+import AboutCard from "@/components/ui/AboutCard.astro";
 
 const [company] = await getCollection("company");
 if (!company) {
