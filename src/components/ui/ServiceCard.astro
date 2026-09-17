@@ -24,7 +24,7 @@ const imageUrl = image || (icon ? `/assets/services/${icon}.svg` : "/logo.svg");
 
 <article class="service-card group flex flex-col gap-4">
     <div class="mb-6 flex h-24 w-full items-center justify-center">
-        <img
+        <img    
             src={imageUrl}
             alt={imageAlt}
             width="100"
@@ -41,7 +41,7 @@ const imageUrl = image || (icon ? `/assets/services/${icon}.svg` : "/logo.svg");
         {description}
     </p>
 
-    <a href={href} class="btn-card mt-auto w-full max-w-[240px]">
+    <a href={href} class="btn-card mt-auto w-full max-w-60">
         {cta}
     </a>
 </article>
