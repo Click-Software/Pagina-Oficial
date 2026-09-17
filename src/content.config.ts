@@ -17,11 +17,14 @@ const company = defineCollection({
         href: z.string(),
       }),
     }),
-    about: z.object({
-      mission: z.string(),
-      vision: z.string(),
-      customPhilosophy: z.string(),
-    }),
+    about: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          image: z.string(),
+          alt: z.string(),
+        })
+      ),
     contact: z.object({
       email: z.email(),
       whatsapp: z.object({
