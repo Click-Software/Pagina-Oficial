@@ -13,19 +13,19 @@
             {
                 "title": "Misión",
                 "description": "Ayudar a empresas y emprendimientos a consolidar una presencia digital sólida y escalable mediante software web de alto rendimiento, interfaces intuitivas y arquitecturas robustas.",
-                "image": "public/images/about/rocket.svg",
+                "image": "/images/about/rocket.svg",
                 "alt": "Nuestra misión empresarial"
             },
             {
                 "title": "Visión",
                 "description": "Posicionarnos como el socio tecnológico preferido y más confiable para negocios en constante crecimiento, reconocidos por nuestra agilidad técnica, rigor ingenieril y entrega sin compromisos.",
-                "image": "public/images/about/eye.svg",
+                "image": "/images/about/eye.svg",
                 "alt": "Nuestra visión a futuro"
             },
             {
                 "title": "Filosofía",
                 "description": "En Click diseñamos y construimos cada solución adaptándonos exclusivamente a la identidad, objetivos comerciales y requerimientos técnicos de tu negocio. No imponemos un estilo retro ni plantillas genéricas; tu marca es la protagonista.",
-                "image": "public/images/about/puzzle-piece.svg",
+                "image": "/images/about/puzzle-piece.svg",
                 "alt": "Nuestra filosofía y valores"
             }
         ],
