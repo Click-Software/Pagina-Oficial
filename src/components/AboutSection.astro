@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import AboutCard from "@/components/AboutCard.astro";
+
+const [company] = await getCollection("company");
+if (!company) {
+    throw new Error('No se encontró la colección "company".');
+}
+const { about } = company.data;
+---
+
+<section id="nosotros" class="about-section container-stage">
+    <div class="w-full max-w-2xl mx-auto mb-14 text-center flex flex-col items-center">
+        <span class="inline-block mb-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
+            Conócenos
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-center text-text">
+            Quiénes Somos
+        </h2>
+        <p class="text-base sm:text-lg text-text-muted leading-relaxed text-center">
+            El propósito, la visión y los principios que guían la construcción de cada uno de nuestros proyectos.
+        </p>
+    </div>
+
+    <div class="container-stage">
+        {about.map((card) => (
+            <AboutCard {...card} />
+        ))}
+    </div>
+</section>
+
+<style>
+    .container-stage {
+        display: flex;
+        align-items: center;
+        flex-direction: column; 
+        gap: 2rem;             
+    }
+</style>

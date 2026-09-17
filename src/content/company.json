@@ -1,35 +1,50 @@
 [
-  {
-    "id": "info",
-    "hero": {
-      "headline": "Desarrollo de Software Web a la Medida de tu Empresa",
-      "subheadline": "Ayudamos a empresas y negocios a consolidar una presencia digital sólida mediante aplicaciones web de alto rendimiento, arquitectura moderna y experiencias memorables.",
-      "cta": {
-        "label": "Solicitar Cotización",
-        "href": "#contacto"
-      }
-    },
-    "about": {
-      "mission": "Ayudar a empresas y emprendimientos a consolidar una presencia digital sólida y escalable mediante software web de alto rendimiento, interfaces intuitivas y arquitecturas robustas.",
-      "vision": "Posicionarnos como el socio tecnológico preferido y más confiable para negocios en constante crecimiento, reconocidos por nuestra agilidad técnica, rigor ingenieril y entrega sin compromisos.",
-      "customPhilosophy": "En Click diseñamos y construimos cada solución adaptándonos exclusivamente a la identidad, objetivos comerciales y requerimientos técnicos de tu negocio. No imponemos un estilo retro ni plantillas genéricas; tu marca es la protagonista."
-    },
-    "contact": {
-      "email": "contacto@clicksoftware.dev",
-      "whatsapp": {
-        "number": "+521234567890",
-        "display": "+52 (123) 456-7890",
-        "defaultMessage": "Hola, me gustaría solicitar una propuesta formal de desarrollo para mi empresa."
-      },
-      "responseTime": "Respuesta en menos de 24 horas hábiles"
-    },
-    "navLinks": [
-      { "label": "Inicio", "href": "/" },
-      { "label": "Quiénes Somos", "href": "/#nosotros" },
-      { "label": "Equipo", "href": "/#equipo" },
-      { "label": "Servicios", "href": "/#servicios" },
-      { "label": "Portafolio", "href": "/#portafolio" },
-      { "label": "Contacto", "href": "/#contacto" }
-    ]
-  }
+    {
+        "id": "info",
+        "hero": {
+            "headline": "Desarrollo de Software Web a la Medida de tu Empresa",
+            "subheadline": "Ayudamos a empresas y negocios a consolidar una presencia digital sólida mediante aplicaciones web de alto rendimiento, arquitectura moderna y experiencias memorables.",
+            "cta": {
+                "label": "Solicitar Cotización",
+                "href": "#contacto"
+            }
+        },
+        "about": [
+            {
+                "title": "Misión",
+                "description": "Ayudar a empresas y emprendimientos a consolidar una presencia digital sólida y escalable mediante software web de alto rendimiento, interfaces intuitivas y arquitecturas robustas.",
+                "image": "/images/about/rocket.svg",
+                "alt": "Nuestra misión empresarial"
+            },
+            {
+                "title": "Visión",
+                "description": "Posicionarnos como el socio tecnológico preferido y más confiable para negocios en constante crecimiento, reconocidos por nuestra agilidad técnica, rigor ingenieril y entrega sin compromisos.",
+                "image": "/images/about/eye.svg",
+                "alt": "Nuestra visión a futuro"
+            },
+            {
+                "title": "Filosofía",
+                "description": "En Click diseñamos y construimos cada solución adaptándonos exclusivamente a la identidad, objetivos comerciales y requerimientos técnicos de tu negocio. No imponemos un estilo retro ni plantillas genéricas; tu marca es la protagonista.",
+                "image": "/images/about/puzzle-piece.svg",
+                "alt": "Nuestra filosofía y valores"
+            }
+        ],
+        "contact": {
+            "email": "contacto@clicksoftware.dev",
+            "whatsapp": {
+                "number": "+521234567890",
+                "display": "+52 (123) 456-7890",
+                "defaultMessage": "Hola, me gustaría solicitar una propuesta formal de desarrollo para mi empresa."
+            },
+            "responseTime": "Respuesta en menos de 24 horas hábiles"
+        },
+        "navLinks": [
+            { "label": "Inicio", "href": "/" },
+            { "label": "Quiénes Somos", "href": "/#nosotros" },
+            { "label": "Equipo", "href": "/#equipo" },
+            { "label": "Servicios", "href": "/#servicios" },
+            { "label": "Portafolio", "href": "/#portafolio" },
+            { "label": "Contacto", "href": "/#contacto" }
+        ]
+    }
 ]
