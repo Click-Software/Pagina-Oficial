@@ -40,10 +40,10 @@
         },
         "navLinks": [
             { "label": "Inicio", "href": "/" },
-            { "label": "Quiénes Somos", "href": "/#nosotros" },
-            { "label": "Equipo", "href": "/#equipo" },
             { "label": "Servicios", "href": "/#servicios" },
             { "label": "Portafolio", "href": "/#portafolio" },
+            { "label": "Quiénes Somos", "href": "/#nosotros" },
+            { "label": "Equipo", "href": "/#equipo" },          
             { "label": "Contacto", "href": "/#contacto" }
         ]
     }
