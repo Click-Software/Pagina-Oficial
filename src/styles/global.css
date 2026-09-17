@@ -39,10 +39,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(18, 18, 18, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+  background-image: none;
 }
 
 /* Accesibilidad de foco */
@@ -55,19 +52,19 @@ body {
    Utilidades Reutilizables de Diseño (Contenedor común & Botones Retro)
    ========================================================================== */
 .container-stage {
-  max-width: 72rem;
+  max-width: 68rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
   width: 100%;
 }
 
 /* Espaciado consistente entre secciones */
 .site-section {
   width: 100%;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: clamp(4rem, 8vw, 6.5rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   content-visibility: auto;
   contain-intrinsic-size: 700px;
@@ -90,7 +87,8 @@ body {
   font-weight: 700;
   color: var(--color-text);
   background-color: var(--color-accent);
-  border: 1.5px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: .35rem;
   box-shadow: 2px 2px 0px var(--color-border);
   text-decoration: none;
   cursor: pointer;
@@ -124,6 +122,70 @@ body {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0px var(--color-border);
 }
+
+/* Shared minimal system for legacy section components. */
+body .window-frame {
+  border: 1px solid rgba(18, 18, 18, .16);
+  border-radius: .65rem;
+  box-shadow: none;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+body .window-titlebar {
+  height: 2.4rem;
+  padding-inline: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border-bottom: 1px solid rgba(18, 18, 18, .1);
+}
+
+body .window-titlebar.is-active {
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+
+body .window-control {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid rgba(18, 18, 18, .16);
+  border-radius: .25rem;
+  background: var(--color-surface-muted);
+}
+
+body .window-control--close { color: var(--color-text-muted); background: var(--color-surface-muted); }
+body .window-body { padding: clamp(1rem, 3vw, 2rem); background: var(--color-surface); }
+body .service-card,
+body .portfolio-card,
+body .team-card,
+body .about-card {
+  border: 1px solid rgba(18, 18, 18, .14);
+  border-radius: .65rem;
+  box-shadow: none;
+  background: var(--color-surface);
+}
+body .service-card:hover,
+body .portfolio-card:hover,
+body .team-card:hover,
+body .about-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 18, 18, .08);
+}
+body .service-card { padding: 1.75rem 1.5rem 1.5rem; }
+body .service-card .btn-card,
+body .portfolio-card .btn-card {
+  border: 1px solid rgba(18, 18, 18, .18);
+  border-radius: .35rem;
+  box-shadow: none;
+  background: var(--color-surface);
+}
+body .portfolio-card__media { border-bottom: 1px solid rgba(18, 18, 18, .12); }
+body .portfolio-card__tag { border: 1px solid rgba(18, 18, 18, .12); border-radius: .25rem; }
+body .team-card__avatar-frame { border: 1px solid rgba(18, 18, 18, .12); border-radius: 50%; }
+body .team-card__role { min-height: 2rem; border: 0; border-radius: .25rem; }
+body .about-card { padding: 1.5rem; text-align: left; }
+body .about-card .card-media { border: 0; border-radius: .5rem; overflow: hidden; }
+body .footer-retro { padding: 2.5rem clamp(1rem, 4vw, 2rem); border-top: 1px solid rgba(18, 18, 18, .12); background: var(--color-surface); }
 
 .btn-primary:active {
   transform: translate(2px, 2px);

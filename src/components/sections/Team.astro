@@ -8,7 +8,7 @@ const team = (await getCollection("team")).sort(
 );
 ---
 
-<section id="equipo" class="team-section">
+<section id="equipo" class="team-section site-section">
   <div class="container-stage">
     <WindowFrame title="EQUIPO_TECNICO">
       <header class="team-section__header">
@@ -51,13 +51,13 @@ const team = (await getCollection("team")).sort(
 <style>
   .team-section {
     width: 100%;
-    padding: 6rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0;
+    border-top: 0;
   }
 
   @media (max-width: 640px) {
     .team-section {
-      padding: 4.5rem 0;
+      padding: 0;
     }
   }
 
@@ -108,7 +108,7 @@ const team = (await getCollection("team")).sort(
 
   @media (max-width: 767px) {
     .team-section {
-      padding: 36px 0;
+      padding: 0;
     }
     .team-section__title {
       font-size: 26px;

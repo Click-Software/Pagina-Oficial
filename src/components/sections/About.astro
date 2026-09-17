@@ -9,7 +9,7 @@ if (!company) {
 const { about } = company.data;
 ---
 
-<section id="nosotros" class="about-section container-stage site-section">
+<section id="nosotros" class="about-section site-section">
     <div class="w-full max-w-2xl mx-auto mb-14 text-center flex flex-col items-center">
         <span class="inline-block mb-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
             Conócenos
@@ -22,7 +22,7 @@ const { about } = company.data;
         </p>
     </div>
 
-    <div class="container-stage">
+    <div class="container-stage about-grid">
         {about.map((card) => (
             <AboutCard {...card} />
         ))}
@@ -30,10 +30,12 @@ const { about } = company.data;
 </section>
 
 <style>
-    .container-stage {
-        display: flex;
-        align-items: center;
-        flex-direction: column; 
-        gap: 2rem;             
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    @media (max-width: 800px) {
+        .about-grid { grid-template-columns: 1fr; }
     }
 </style>
