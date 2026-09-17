@@ -1,0 +1,215 @@
+---
+import { getCollection } from "astro:content";
+import WindowFrame from "./WindowFrame.astro";
+import PortfolioCard from "./PortfolioCard.astro";
+
+const portfolio = (await getCollection("portfolio")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<section id="portafolio" class="portfolio-section">
+  <div class="container-stage">
+    <WindowFrame title="PORTAFOLIO.EXE">
+      <header class="portfolio-section__header">
+        <span class="portfolio-section__eyebrow">Prueba de competencia técnica</span>
+        <h2 class="portfolio-section__title">Proyectos y demostraciones</h2>
+        <p class="portfolio-section__subtitle">
+          Una muestra de trabajos reales que resolvimos para nuestros
+          clientes: el problema que enfrentaban y la tecnología que usamos
+          para resolverlo.
+        </p>
+      </header>
+
+      <div class="portfolio-grid">
+        {
+          portfolio.map((project) => (
+            <PortfolioCard
+              title={project.data.title}
+              client={project.data.client}
+              problemSolved={project.data.problemSolved}
+              image={project.data.image}
+              imageAlt={project.data.imageAlt}
+              tags={project.data.tags}
+              demoUrl={project.data.demoUrl}
+            />
+          ))
+        }
+      </div>
+    </WindowFrame>
+  </div>
+</section>
+
+<dialog id="portfolio-lightbox" class="portfolio-lightbox">
+  <button
+    type="button"
+    class="portfolio-lightbox__close"
+    aria-label="Cerrar vista previa"
+  >
+    ✕
+  </button>
+  <img id="portfolio-lightbox__img" src="" alt="" />
+  <p id="portfolio-lightbox__caption"></p>
+</dialog>
+
+<style>
+  .portfolio-section {
+    padding: 64px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .portfolio-section__header {
+    max-width: 52ch;
+    margin-bottom: 32px;
+  }
+
+  .portfolio-section__eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-brand);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .portfolio-section__title {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .portfolio-section__subtitle {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-text-muted);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 1023px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .portfolio-section {
+      padding: 36px 0;
+    }
+    .portfolio-section__title {
+      font-size: 26px;
+      line-height: 34px;
+    }
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* Lightbox */
+  .portfolio-lightbox {
+    position: fixed;
+    inset: 0;
+    max-width: min(90vw, 900px);
+    max-height: 85vh;
+    margin: auto;
+    padding: 0;
+    border: 3px solid var(--color-border);
+    border-radius: 0.75rem;
+    box-shadow: 8px 8px 0px var(--color-border);
+    background-color: var(--color-surface);
+  }
+
+  .portfolio-lightbox::backdrop {
+    background-color: rgba(18, 18, 18, 0.7);
+  }
+
+  .portfolio-lightbox[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portfolio-lightbox img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+
+  .portfolio-lightbox__caption {
+    margin: 0;
+    padding: 0.9rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text);
+    border-top: 2px solid var(--color-border);
+  }
+
+  .portfolio-lightbox__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .portfolio-lightbox__close:hover {
+    transform: translate(1px, 1px);
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById(
+    "portfolio-lightbox"
+  ) as HTMLDialogElement | null;
+  const imgEl = document.getElementById(
+    "portfolio-lightbox__img"
+  ) as HTMLImageElement | null;
+  const captionEl = document.getElementById("portfolio-lightbox__caption");
+  const closeBtn = dialog?.querySelector(".portfolio-lightbox__close");
+
+  document.querySelectorAll("[data-lightbox-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const image = trigger.getAttribute("data-image");
+      const alt = trigger.getAttribute("data-alt") ?? "";
+      const title = trigger.getAttribute("data-title") ?? "";
+
+      if (imgEl && image) {
+        imgEl.src = image;
+        imgEl.alt = alt;
+      }
+      if (captionEl) captionEl.textContent = title;
+
+      dialog?.showModal();
+    });
+  });
+
+  closeBtn?.addEventListener("click", () => dialog?.close());
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
