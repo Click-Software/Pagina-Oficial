@@ -1,23 +1,27 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import NavBar from "@/components/NavBar.astro";
-import Hero from "@/components/Hero.astro";
-import ServicesSection from "@/components/ServicesSection.astro";
-import PortfolioSection from "@/components/PortfolioSection.astro";
-import TeamSection from "@/components/TeamSection.astro";
-import AboutSection from "@/components/AboutSection.astro";
+import NavBar from "@/components/layout/NavBar.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Services from "@/components/sections/Services.astro";
+import Portfolio from "@/components/sections/Portfolio.astro";
+import Team from "@/components/sections/Team.astro";
+import Contact from "@/components/sections/Contact.astro";
+import Footer from "@/components/layout/Footer.astro";
+import About from "@/components/sections/About.astro";
 ---
 
 <Layout
   title="Click — Experiencias memorables en un solo click"
   description="Desarrollo de páginas web corporativas y soluciones de software a la medida para empresas, pymes y emprendimientos."
 >
-  <NavBar />
-  <main class="main-wrapper">
-    <Hero />
-    <ServicesSection />
-    <PortfolioSection />
-    <AboutSection />
-    <TeamSection />
-  </main>
+    <NavBar />
+    <main class="main-wrapper">
+        <Hero />
+        <Services />
+        <Portfolio />
+        <About />
+        <Team />
+        <Contact />
+    </main>
+  <Footer />
 </Layout>

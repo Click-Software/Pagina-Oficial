@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import WindowFrame from "./WindowFrame.astro";
-import TeamCard from "./TeamCard.astro";
+import WindowFrame from "@/components/common/WindowFrame.astro";
+import TeamCard from "@/components/ui/TeamCard.astro";
 
 const team = (await getCollection("team")).sort(
   (a, b) => a.data.order - b.data.order
@@ -10,9 +10,8 @@ const team = (await getCollection("team")).sort(
 
 <section id="equipo" class="team-section">
   <div class="container-stage">
-    <WindowFrame title="EQUIPO_TECNICO.EXE">
+    <WindowFrame title="EQUIPO_TECNICO">
       <header class="team-section__header">
-        <span class="team-section__eyebrow">quiénes construyen tu proyecto</span>
         <h2 class="team-section__title">El equipo detrás de Click</h2>
         <p class="team-section__subtitle">
           Cada persona en este roster es responsable directa de una parte del
@@ -51,8 +50,15 @@ const team = (await getCollection("team")).sort(
 
 <style>
   .team-section {
-    padding: 64px 0;
+    width: 100%;
+    padding: 6rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .team-section {
+      padding: 4.5rem 0;
+    }
   }
 
   .team-section__header {

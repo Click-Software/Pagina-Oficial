@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import ServiceCard from "@/components/ServiceCard.astro";
+import ServiceCard from "@/components/ui/ServiceCard.astro";
 
 import corporateIcon from "@/assets/icons/icon-service-corporate.png";
 import customIcon from "@/assets/icons/icon-service-custom.png";
@@ -15,12 +15,9 @@ const serviceImages: Record<string, string> = {
 };
 ---
 
-<section id="servicios" class="w-full py-16 sm:py-24 border-t border-black/10">
+<section id="servicios" class="site-section">
   <div class="container-stage flex flex-col items-center">
     <div class="w-full max-w-2xl mx-auto mb-14 text-center flex flex-col items-center">
-      <span class="inline-block mb-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
-        Lo que hacemos
-      </span>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-center text-text">
         Nuestros Servicios
       </h2>
@@ -37,7 +34,7 @@ const serviceImages: Record<string, string> = {
               title={service.data.title}
               description={service.data.description}
               cta={service.data.ctaLabel}
-              href={`/contacto?servicio=${service.data.serviceKey}`}
+              href={`/?servicio=${service.data.serviceKey}#contacto`}
               image={serviceImages[service.id] || "/logo.svg"}
             />
           </div>

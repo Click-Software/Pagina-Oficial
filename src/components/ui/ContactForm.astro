@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import WindowFrame from "@/components/common/WindowFrame.astro";
+import ContactFormIsland from "@/components/islands/ContactForm";
+
+const services = await getCollection("services");
+const serviceOptions = services
+  .sort((a, b) => (a.data.order ?? 1) - (b.data.order ?? 1))
+  .map((s) => ({
+    key: s.data.serviceKey,
+    title: s.data.title,
+  }));
+---
+
+<div id="formulario-contacto" class="w-full max-w-xl mx-auto">
+  <WindowFrame title="COTIZACION_FORM">
+    <ContactFormIsland client:visible services={serviceOptions} />
+  </WindowFrame>
+</div>

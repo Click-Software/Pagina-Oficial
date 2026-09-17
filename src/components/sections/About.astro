@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import AboutCard from "@/components/AboutCard.astro";
+import AboutCard from "@/components/ui/AboutCard.astro";
 
 const [company] = await getCollection("company");
 if (!company) {
@@ -9,7 +9,7 @@ if (!company) {
 const { about } = company.data;
 ---
 
-<section id="nosotros" class="about-section container-stage">
+<section id="nosotros" class="about-section container-stage site-section">
     <div class="w-full max-w-2xl mx-auto mb-14 text-center flex flex-col items-center">
         <span class="inline-block mb-2 font-mono text-xs font-bold uppercase tracking-wider text-brand">
             Conócenos
